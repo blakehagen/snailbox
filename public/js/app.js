@@ -1,12 +1,12 @@
 angular.module('snailbox', ['ui.router']).config(function ($stateProvider, $urlRouterProvider) {
 
   $stateProvider
-    .state('example', {
-      url: '/example',
-      templateUrl: './app/features/example/exampleTmpl.html',
-      controller: 'exampleCtrl as example'
+    .state('login', {
+      url: '/login',
+      templateUrl: './app/features/login/loginTmpl.html',
+      controller: 'loginCtrl as loginCtrl'
     });
 
   $urlRouterProvider
-    .otherwise('/example');
+    .otherwise('/login');
 });

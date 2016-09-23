@@ -1,6 +1,6 @@
 'use strict';
 // GULP CONFIG FILE //
-const config = require('./gulp.config')();
+const config               = require('./gulp.config')();
 const gulp                 = require('gulp');
 const taskList             = require('gulp-task-listing');
 const jshint               = require('gulp-jshint');
@@ -11,6 +11,7 @@ const gulpif               = require('gulp-if');
 const gconcat              = require('gulp-concat');
 const minifyHtml           = require('gulp-minify-html');
 const minifyCss            = require('gulp-minify-css');
+const imagemin             = require('gulp-imagemin');
 const less                 = require('gulp-less');
 const inject               = require('gulp-inject');
 const autoprefixer         = require('gulp-autoprefixer');
@@ -50,6 +51,7 @@ gulp.task('js-check', function (done) {
     .pipe(jshint.reporter('fail'));
 });
 
+// CREATE TEMPLATE CACHE //
 gulp.task('template-cache', function (done) {
   log('Creating Angular $templateCache...');
   return gulp.src(config.htmlTemplates)
@@ -89,6 +91,15 @@ gulp.task('optimize-js', ['template-cache', 'optimize-appJs', 'optimize-vendorJs
   log('OPTIMIZING ALL JS...');
 });
 
+// OPTIMIZE IMAGES //
+gulp.task('optimize-images', function (done) {
+  log('Optimizing images...');
+  gulp.src('public/assets/**/*.*')
+    .pipe(imagemin())
+    .pipe(gulp.dest('build/assets'));
+  done();
+});
+
 // COMPILE LESS --> CSS, CONCAT & MINIFY --> BUILD //
 gulp.task('compile-less', function (done) {
   log('Compiling LESS --> CSS...');
@@ -118,7 +129,7 @@ gulp.task('optimize-styles', ['compile-less', 'optimize-vendor-css'], function (
 });
 
 // INJECT FILES TO BUILD INDEX //
-gulp.task('inject', ['optimize-js', 'optimize-styles'], function () {
+gulp.task('inject', ['optimize-images', 'optimize-js', 'optimize-styles'], function () {
   log('Injecting assets into build index...');
   var templateCache = config.build + 'templates/' + config.templateCache.file;
   var jsLib         = config.build + 'js/lib.js';
@@ -168,7 +179,7 @@ function serve() {
       log('files changed on restart:\n' + ev);
       setTimeout(function () {
         browserSync.notify('reloading...');
-        browserSync.reload({steam:false});
+        browserSync.reload({steam: false});
       }, 1000);
     })
     .on('start', function () {
@@ -212,7 +223,7 @@ function startBrowserSync() {
     });
 
   var options = {
-    proxy: 'localhost:' +  port,
+    proxy: 'localhost:' + port,
     port: 3000,
     files: [config.public + '**/*.*'],
     injectChanges: true,
