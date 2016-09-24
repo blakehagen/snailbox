@@ -25,6 +25,8 @@ angular.module('snailbox').service('authService', function ($http, API) {
       data: data
     }).then(function (response) {
       return response.data;
+    }).catch(function (response) {
+      return response.data;
     });
   };
 
