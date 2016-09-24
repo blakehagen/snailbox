@@ -216,10 +216,9 @@ function startBrowserSync() {
   //       changeEvent(event);
   //     });
   // }
-  gulp.watch([config.less, config.css, config.appJS, config.htmlTemplates], ['inject', browserSync.reload])
+  gulp.watch([config.less, config.css, config.cssVendor, config.appJS, config.htmlTemplates], ['clean-build', 'inject', browserSync.reload])
     .on('change', function (event) {
       changeEvent(event);
-      console.log('hi');
     });
 
   var options = {
