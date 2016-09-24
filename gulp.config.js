@@ -7,6 +7,7 @@ module.exports = function () {
       // FIRST LOAD THE APP.JS FILE //
       public + 'js/app.js',
       // REST OF APP JS //
+      public + 'js/constants.js',
       public + 'js/app/**/*.js'
     ],
     appJSVendor: [

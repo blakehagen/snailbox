@@ -6,9 +6,24 @@
     </div>
 
     <div>
-      <form action="">
-        <input type="email" placeholder="Email">
-        <input type="password" placeholder="Password">
+      <form name="login" ng-submit="loginCtrl.submitLoginForm(login.$valid)" novalidate>
+
+          <input type="email"
+                 placeholder="E-mail"
+                 name="email"
+                 ng-model="loginCtrl.data.email"
+                 ng-model-options="{debounce: 1500}"
+                 ng-class="login.email.$invalid && !login.email.$pristine ? 'invalid-input' : 'valid-input'"
+                 required>
+
+        <input type="password"
+               placeholder="Password"
+               name="password"
+               ng-model="loginCtrl.data.password"
+               ng-model-options="{debounce: 1500}"
+               ng-class="login.password.$invalid && !login.password.$pristine ? 'invalid-input' : 'valid-input'"
+               required>
+
         <button class="btn flex-base-col-center" type="submit">
           <p>Log In</p>
         </button>
@@ -19,8 +34,5 @@
       </div>
 
     </div>
-
-
   </div>
 </section>
-

@@ -3,6 +3,7 @@
 .login-wrap {
   width: 100%;
   height: 100vh;
+  min-height: 450px;
   background-image: url("../assets/snailbox-main.jpg");
   background-position: bottom;
   background-repeat: no-repeat;
@@ -35,6 +36,12 @@
       border: none;
       outline: 0;
     }
+    .valid-input {
+      border: none;
+    }
+    .invalid-input {
+      border: 2px solid #ED6464;
+    }
     .btn {
       cursor: pointer;
       border: none;
@@ -61,7 +68,6 @@
     }
   }
 }
-
 
 @media (max-width: 450px) {
   .login-form-container {
