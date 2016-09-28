@@ -151,7 +151,7 @@ gulp.task('inject', ['optimize-images', 'optimize-js', 'optimize-styles'], funct
 });
 
 // OPTIMIZE BUILD //
-gulp.task('build', ['inject'], function () {
+gulp.task('build', ['clean-build', 'inject'], function () {
   log('Serving up the awesomeness...');
   serve();
 });
