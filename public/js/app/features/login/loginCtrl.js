@@ -1,8 +1,8 @@
-angular.module('snailbox').controller('loginCtrl', function ($state, authService) {
+angular.module('snailbox').controller('loginCtrl', function ($state, $location, authService) {
   var loginCtrl = this;
 
   loginCtrl.loading = false;
-  loginCtrl.error = false;
+  loginCtrl.error   = false;
 
   loginCtrl.goToSignup = function () {
     $state.go('signup');
@@ -19,13 +19,14 @@ angular.module('snailbox').controller('loginCtrl', function ($state, authService
       authService.login(loginCtrl.data).then(function (loginResponse) {
         console.log('loginResponse', loginResponse);
         loginCtrl.loading = false;
-        if(loginResponse.message !== 'Login Success'){
-          loginCtrl.error = true;
+        if (loginResponse.message !== 'Login Success') {
+          loginCtrl.error         = true;
           loginCtrl.data.password = '';
+          return false;
         }
+        $location.path('/user/' + loginResponse.user._id);
       });
     }
   };
-
 
 });
