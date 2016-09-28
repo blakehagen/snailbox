@@ -1,14 +1,19 @@
 'use strict';
 
-angular.module('snailbox').controller('userHomeCtrl', function () {
+angular.module('snailbox').controller('userHomeCtrl', function ($stateParams, $state, userService) {
   var userHomeCtrl = this;
 
-  userHomeCtrl.test = 'If you can read this, your userHomeCtrl is set up correctly :)';
-  console.log('userHomeCtrl.test ==>> ', userHomeCtrl.test);
+  userHomeCtrl.getUser = function () {
+    userService.getUserById($stateParams.id)
+      .then(function (user) {
+      console.log('user', user);
+    }).catch(function (error) {
+      $state.go('login');
+      console.log('error', error);
+    });
+  };
 
-
-
-
+  userHomeCtrl.getUser();
 
 
 });

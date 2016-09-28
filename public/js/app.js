@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('snailbox', ['ui.router']).config(function ($stateProvider, $urlRouterProvider) {
+angular.module('snailbox', ['ui.router']).config(function ($stateProvider, $urlRouterProvider, $httpProvider) {
 
   $stateProvider
     .state('login', {
@@ -23,4 +23,7 @@ angular.module('snailbox', ['ui.router']).config(function ($stateProvider, $urlR
 
   $urlRouterProvider
     .otherwise('/login');
+
+  $httpProvider.interceptors.push('authInterceptor');
+
 });

@@ -1,10 +1,10 @@
 'use strict';
 
 angular.module('snailbox')
-  // .constant('AUTH_EVENTS', {
-  //   notAuthenticated: 'auth-not-authenticated',
-  //   notAuthorized: 'auth-not-authorized'
-  // })
+  .constant('AUTH_EVENTS', {
+    notAuthenticated: 'auth-not-authenticated',
+    notAuthorized: 'auth-not-authorized'
+  })
 
   .constant('API', {
     SERVER_LOCAL_MDB: 'http://localhost:4800/api/v1/',

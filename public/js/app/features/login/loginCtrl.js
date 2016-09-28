@@ -1,4 +1,4 @@
-angular.module('snailbox').controller('loginCtrl', function ($state, $location, authService) {
+angular.module('snailbox').controller('loginCtrl', function ($state, $location, authService, tokenService) {
   var loginCtrl = this;
 
   loginCtrl.loading = false;
@@ -11,19 +11,19 @@ angular.module('snailbox').controller('loginCtrl', function ($state, $location, 
   loginCtrl.submitLoginForm = function (isValid) {
     loginCtrl.error = false;
     if (!isValid) {
-      console.log('Error - form not valid');
       return false;
     }
     else {
       loginCtrl.loading = true;
       authService.login(loginCtrl.data).then(function (loginResponse) {
-        console.log('loginResponse', loginResponse);
+        console.log('loginResponse::::', loginResponse);
         loginCtrl.loading = false;
         if (loginResponse.message !== 'Login Success') {
           loginCtrl.error         = true;
           loginCtrl.data.password = '';
           return false;
         }
+        tokenService.setToken(loginResponse.token);
         $location.path('/user/' + loginResponse.user._id);
       });
     }

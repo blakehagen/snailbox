@@ -15,7 +15,6 @@ angular.module('snailbox').service('authService', function ($http, API) {
   };
 
   this.login = function (data) {
-    console.log('sending data on service', data);
     return $http({
       method: 'POST',
       url: API.SERVER_HEROKU + 'login',

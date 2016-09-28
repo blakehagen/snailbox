@@ -1,4 +1,4 @@
-angular.module('snailbox').controller('signupCtrl', function ($state, $location, authService) {
+angular.module('snailbox').controller('signupCtrl', function ($state, $location, authService, tokenService) {
   var signupCtrl = this;
 
   signupCtrl.loading       = false;
@@ -10,7 +10,6 @@ angular.module('snailbox').controller('signupCtrl', function ($state, $location,
   };
 
   signupCtrl.submitSignupForm = function (isValid) {
-    console.log('signupCtrl.data', signupCtrl.data);
     signupCtrl.error         = false;
     signupCtrl.passwordError = false;
     if (!isValid) {
@@ -26,7 +25,7 @@ angular.module('snailbox').controller('signupCtrl', function ($state, $location,
     else {
       signupCtrl.loading = true;
       authService.signup(signupCtrl.data).then(function (signupResponse) {
-        console.log('signupResponse', signupResponse);
+        console.log('signupResponse ::::', signupResponse);
         signupCtrl.loading = false;
         if (signupResponse.message !== 'Registration Success') {
           signupCtrl.error          = true;
@@ -34,6 +33,7 @@ angular.module('snailbox').controller('signupCtrl', function ($state, $location,
           signupCtrl.data.password2 = '';
           return false;
         }
+        tokenService.setToken(signupResponse.token);
         $location.path('/user/' + signupResponse.user._id);
       });
     }
