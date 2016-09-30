@@ -12,5 +12,17 @@ angular.module('snailbox').service('userService', function ($http, API) {
     });
   };
 
+  this.updateAddress = function (id, addressData) {
+    return $http({
+      method: 'PUT',
+      url: API.SERVER_HEROKU + 'user/' + id + '/address',
+      // url: API.SERVER_LOCAL_MDB + 'user/' + id + '/address',
+      dataType: 'json',
+      data: addressData
+    }).then(function (response) {
+      return response.data;
+    });
+  };
+
 
 });

@@ -1,18 +1,24 @@
-angular.module('snailbox').controller('newAddressCtrl', function ($state, $location) {
+angular.module('snailbox').controller('newAddressCtrl', function ($state, $stateParams, $location, userService) {
   var newAddressCtrl = this;
 
   newAddressCtrl.error = false;
 
   newAddressCtrl.submitNewAddress = function (isValid) {
     newAddressCtrl.error = false;
-    console.log('isValid', isValid);
     if (!isValid) {
       newAddressCtrl.error = true;
-      console.log('FORM NOT VALID');
       return false;
     } else {
-      console.log('newAddressCtrl.newAddressData', newAddressCtrl.newAddressData);
-      console.log('Form is Valid');
+      userService.updateAddress($stateParams.id, newAddressCtrl.newAddressData).then(function (response) {
+        console.log('address update response: ', response);
+        if(response === 'Update Success!'){
+          newAddressCtrl.newAddressData = null;
+          $location.path('/user/' + $stateParams.id);
+        }
+
+      }).catch(function (error) {
+        console.log('error', error);
+      });
     }
   };
 
