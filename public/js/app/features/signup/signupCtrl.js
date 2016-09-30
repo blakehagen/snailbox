@@ -34,7 +34,7 @@ angular.module('snailbox').controller('signupCtrl', function ($state, $location,
           return false;
         }
         tokenService.setToken(signupResponse.token);
-        $location.path('/user/' + signupResponse.user._id);
+        $location.path('/user/' + signupResponse.user._id + '/new');
       });
     }
   };

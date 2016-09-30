@@ -24,7 +24,11 @@ angular.module('snailbox').controller('loginCtrl', function ($state, $location, 
           return false;
         }
         tokenService.setToken(loginResponse.token);
-        $location.path('/user/' + loginResponse.user._id);
+        if (!loginResponse.user.address.address1) {
+          $location.path('/user/' + loginResponse.user._id + '/new');
+        } else {
+          $location.path('/user/' + loginResponse.user._id);
+        }
       });
     }
   };
