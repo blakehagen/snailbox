@@ -2,47 +2,54 @@
 
 .user-home-wrap {
   width: 100%;
-  min-height: ~'calc(100vh - 45px)';
+  //height: ~'calc(100vh - 45px)';
   flex-flow: wrap;
+  padding-top: 10px;
+  padding-left: 10px;
 }
 
 .user-section {
-  width: 250px;
-  padding-bottom: 15px;
+  width: 240px;
   border: 1px solid #455A64;
-  border-radius: 6px;
-  min-height: 200px;
-  margin: 30px 15px;
+  margin: 10px;
+  padding-bottom: 6px;
   .user-section-title {
     height: 40px;
     width: 100%;
     padding: 26px 20px;
     background: #455A64;
-    border-top-left-radius: 6px;
-    border-top-right-radius: 6px;
+    margin-bottom: 6px;
     img {
-      width: 24px;
+      width: 28px;
     }
     p {
       color: #FFFFFF;
-      font-size: 26px;
+      font-size: 22px;
       font-family: 'Lato', 'Open Sans', sans-serif;
       font-weight: 100;
-      margin-left: 10px;
+      margin-left: 12px;
     }
   }
   .content-container {
     .content-row {
-      padding: 2px 16px;
+      padding: 0 16px;
       width: 100%;
       p {
-        font-family: 'Lato', 'Open Sans', sans-serif;
+        font-family: 'Open Sans', sans-serif;
         font-weight: 100;
         font-size: 18px;
         color: #455A64;
-
       }
-
     }
+  }
+}
+
+@media (max-width: 530px) {
+  .user-section {
+    width: 92% !important;
+  }
+
+  .user-home-wrap {
+    padding-left: 0 !important;
   }
 }

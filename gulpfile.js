@@ -129,8 +129,8 @@ gulp.task('optimize-styles', ['compile-less', 'optimize-vendor-css'], function (
 });
 
 // INJECT FILES TO BUILD INDEX //
-gulp.task('inject', ['optimize-images', 'optimize-js', 'optimize-styles'], function () {
-  log('Injecting assets into build index...');
+gulp.task('inject', ['optimize-js', 'optimize-styles', 'optimize-images'], function () {
+  log('Injecting into build index...');
   var templateCache = config.build + 'templates/' + config.templateCache.file;
   var jsLib         = config.build + 'js/lib.js';
   var jsApp         = config.build + 'js/app.js';
