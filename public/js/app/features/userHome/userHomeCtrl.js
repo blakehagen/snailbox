@@ -10,6 +10,7 @@ angular.module('snailbox').controller('userHomeCtrl', function ($stateParams, $s
           $location.path('/user/' + $stateParams.id + '/new');
         }
       console.log('user', user);
+        userHomeCtrl.address = user.address;
     }).catch(function (error) {
       $state.go('login');
       console.log('error', error);

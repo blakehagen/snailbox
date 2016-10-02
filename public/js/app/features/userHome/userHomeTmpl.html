@@ -1,1 +1,27 @@
 <user-header></user-header>
+<section class="user-home-wrap">
+
+  <section class="user-section">
+    <div class="user-section-title flex-base-row-start default-cursor">
+      <img src="../assets/home-icon.svg" alt="my-address-icon">
+      <p>My Address</p>
+    </div>
+    <div class="content-container flex-base-col-start default-cursor">
+      <div class="content-row">
+        <p>{{ userHomeCtrl.address.address1 }}</p>
+      </div>
+      <div class="content-row" ng-if="userHomeCtrl.address.address2">
+        <p>{{ userHomeCtrl.address.address2 }}</p>
+      </div>
+      <div class="content-row">
+        <p>{{ userHomeCtrl.address.city }} {{ userHomeCtrl.address.state }},&nbsp; {{userHomeCtrl.address.postal_code}}</p>
+      </div>
+      <div class="content-row">
+        <p>{{ userHomeCtrl.address.country }}</p>
+      </div>
+    </div>
+  </section>
+
+</section>
+
+
