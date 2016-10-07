@@ -2,17 +2,16 @@
 
 .user-home-wrap {
   width: 100%;
-  //height: ~'calc(100vh - 45px)';
   flex-flow: wrap;
   padding-top: 10px;
   padding-left: 10px;
 }
 
 .user-section {
-  width: 240px;
+  width: 260px;
   border: 1px solid #455A64;
+  border-radius: 2px;
   margin: 10px;
-  padding-bottom: 6px;
   .user-section-title {
     height: 40px;
     width: 100%;
@@ -26,7 +25,7 @@
       color: #FFFFFF;
       font-size: 22px;
       font-family: 'Lato', 'Open Sans', sans-serif;
-      font-weight: 100;
+      font-weight: 300;
       margin-left: 12px;
     }
   }
@@ -37,19 +36,37 @@
       p {
         font-family: 'Open Sans', sans-serif;
         font-weight: 100;
-        font-size: 18px;
+        font-size: 20px;
         color: #455A64;
+      }
+    }
+    .actions-top {
+      margin-top: 6px;
+    }
+    .actions {
+      border-top: 1px solid #EEEEEE;
+      padding: 10px 6px 10px 14px;
+      cursor: pointer;
+      &:hover {
+        background: #f6f6f6;
+      }
+      p {
+        font-family: 'Lato', 'Open Sans', sans-serif;
+        font-weight: 300;
+        font-size: 15px;
+        color: #455A64;
+        margin-left: 10px;
       }
     }
   }
 }
 
-@media (max-width: 530px) {
+@media (max-width: 580px) {
   .user-section {
-    width: 92% !important;
+    width: 96% !important;
   }
 
   .user-home-wrap {
-    padding-left: 0 !important;
+    padding: 10px !important;
   }
 }
