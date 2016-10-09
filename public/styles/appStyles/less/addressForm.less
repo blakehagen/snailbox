@@ -1,12 +1,13 @@
 @import "base.less";
 
-.new-address-form {
-  .new-address-title {
+.address-form {
+  width: 380px !important;
+  .address-title {
     margin-left: 12px;
     h5 {
       color: @base;
       font-weight: 100;
-      font-size: 18px;
+      font-size: 24px;
     }
     p {
       font-weight: 100;
@@ -29,5 +30,17 @@
     color: #FFFFFF;
     margin-left: 0;
     line-height: 16px;
+  }
+}
+
+@media (max-width: 450px) {
+  .address-form {
+    width: 88% !important;
+    img {
+      width: 26px !important;
+    }
+    h5 {
+      font-size: 20px !important;
+    }
   }
 }

@@ -2,16 +2,24 @@
 
 .user-home-wrap {
   width: 100%;
+  min-height: ~"calc(100% - 45px)";
   flex-flow: wrap;
   padding-top: 10px;
   padding-left: 10px;
+  background-image: url("../assets/snailbox-main20p.jpg");
+  background-position: bottom;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .user-section {
-  width: 260px;
+  width: 360px;
+  min-height: 260px;
   border: 1px solid #455A64;
   border-radius: 2px;
   margin: 10px;
+  background: #FFFFFF;
+  box-shadow: 2px 2px 2px #AAA;
   .user-section-title {
     height: 40px;
     width: 100%;
@@ -48,7 +56,7 @@
       padding: 10px 6px 10px 14px;
       cursor: pointer;
       &:hover {
-        background: #f6f6f6;
+        background: #f1f1f1;
       }
       p {
         font-family: 'Lato', 'Open Sans', sans-serif;
@@ -61,12 +69,31 @@
   }
 }
 
-@media (max-width: 580px) {
+@media (min-width: 1280px) {
   .user-section {
-    width: 96% !important;
+    width: 400px !important;
   }
 
   .user-home-wrap {
     padding: 10px !important;
+  }
+}
+
+@media (max-width: 1160px) {
+  .user-home-wrap {
+    padding: 10px !important;
+  }
+}
+
+@media (max-width: 785px) {
+  .user-section {
+    width: 80% !important;
+  }
+}
+
+
+@media (max-width: 580px) {
+  .user-section {
+    width: 96% !important;
   }
 }

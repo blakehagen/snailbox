@@ -25,7 +25,13 @@ angular.module('snailbox', ['ui.router']).config(function ($stateProvider, $urlR
     url: '/user/:id/new',
     templateUrl: './app/features/newAddress/newAddressTmpl.html',
     controller: 'newAddressCtrl as newAddressCtrl'
-  });
+  })
+
+    .state('editAddress', {
+      url: '/user/:id/edit',
+      templateUrl: './app/features/editAddress/editAddressTmpl.html',
+      controller: 'editAddressCtrl as editAddressCtrl'
+    });
 
   $urlRouterProvider
     .otherwise('/login');
