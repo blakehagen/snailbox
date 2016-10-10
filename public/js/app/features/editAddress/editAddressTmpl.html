@@ -8,54 +8,55 @@
       </div>
     </div>
 
-    <div class="flex-base-col-center error-container" ng-if="newAddressCtrl.error">
+    <div class="flex-base-col-center error-container" ng-if="editAddressCtrl.error">
       <p class="err-txt default-cursor">Please Complete Form</p>
     </div>
 
     <div>
-      <form name="newAddress" ng-submit="newAddressCtrl.submitNewAddress(newAddress.$valid)" novalidate>
+      <form name="editAddress" ng-submit="editAddressCtrl.submitUpdatedAddress(editAddress.$valid)" novalidate>
 
         <input type="text"
                placeholder="Address Line 1"
                name="address1"
-               ng-model="newAddressCtrl.newAddressData.address1"
+               ng-model="editAddressCtrl.userAddress.address1"
                ng-model-options="{debounce: 1500}"
-               ng-class="newAddress.address1.$invalid && !newAddress.address1.$pristine ? 'invalid-input' : 'valid-input'"
+               ng-class="editAddressCtrl.address1.$invalid && !editAddressCtrl.address1.$pristine ? 'invalid-input' : 'valid-input'"
                required>
 
         <input type="text"
+               ng-model="editAddressCtrl.userAddress2" editAddressCtrl.userAddress
                placeholder="Address Line 2">
 
         <input type="text"
                placeholder="City"
                name="city"
-               ng-model="newAddressCtrl.newAddressData.city"
+               ng-model="editAddressCtrl.userAddress.city"
                ng-model-options="{debounce: 1500}"
-               ng-class="newAddress.city.$invalid && !newAddress.city.$pristine ? 'invalid-input' : 'valid-input'"
+               ng-class="editAddressCtrl.city.$invalid && !editAddressCtrl.city.$pristine ? 'invalid-input' : 'valid-input'"
                required>
 
         <input type="text"
                placeholder="State"
                name="state"
-               ng-model="newAddressCtrl.newAddressData.state"
+               ng-model="editAddressCtrl.userAddress.state"
                ng-model-options="{debounce: 1500}"
-               ng-class="newAddress.state.$invalid && !newAddress.state.$pristine ? 'invalid-input' : 'valid-input'"
+               ng-class="editAddressCtrl.state.$invalid && !editAddressCtrl.state.$pristine ? 'invalid-input' : 'valid-input'"
                required>
 
         <input type="text"
                placeholder="Postal Code"
                name="postalCode"
-               ng-model="newAddressCtrl.newAddressData.postal_code"
+               ng-model="editAddressCtrl.userAddress.postal_code"
                ng-model-options="{debounce: 1500}"
-               ng-class="newAddress.postalCode.$invalid && !newAddress.postalCode.$pristine ? 'invalid-input' : 'valid-input'"
+               ng-class="editAddressCtrl.postalCode.$invalid && !editAddressCtrl.postalCode.$pristine ? 'invalid-input' : 'valid-input'"
                required>
 
         <input type="text"
                placeholder="Country"
                name="country"
-               ng-model="newAddressCtrl.newAddressData.country"
+               ng-model="editAddressCtrl.userAddress.country"
                ng-model-options="{debounce: 1500}"
-               ng-class="newAddress.country.$invalid && !newAddress.country.$pristine ? 'invalid-input' : 'valid-input'"
+               ng-class="editAddressCtrl.country.$invalid && !newAddress.country.$pristine ? 'invalid-input' : 'valid-input'"
                required>
 
         <button class="btn flex-base-col-center" type="submit">
