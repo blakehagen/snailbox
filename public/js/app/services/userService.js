@@ -9,6 +9,8 @@ angular.module('snailbox').service('userService', function ($http, API) {
       // url: API.SERVER_LOCAL_MDB + 'user/' + id
     }).then(function (response) {
       return response.data;
+    }).catch(function (error) {
+      return error;
     });
   };
 
@@ -21,6 +23,8 @@ angular.module('snailbox').service('userService', function ($http, API) {
       data: addressData
     }).then(function (response) {
       return response.data;
+    }).catch(function (error) {
+      return error;
     });
   };
 

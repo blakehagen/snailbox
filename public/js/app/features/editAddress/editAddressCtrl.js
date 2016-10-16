@@ -13,5 +13,18 @@ angular.module('snailbox').controller('editAddressCtrl', function ($stateParams,
 
   editAddressCtrl.getUser();
 
+  editAddressCtrl.submitUpdatedAddress = function (isValid) {
+    if (!isValid) {
+      return false;
+    }
+    userService.updateAddress($stateParams.id, editAddressCtrl.userAddress).then(function (response) {
+      if (response === 'Update Success!') {
+        $location.path('/user/' + $stateParams.id);
+      } else {
+        console.log('response', response);
+      }
+    });
+  };
+
 
 });
