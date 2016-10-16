@@ -1,15 +1,16 @@
 @import "base.less";
 
-.user-home-wrap {
+.user-home-wrapper {
   width: 100%;
-  min-height: ~"calc(100% - 45px)";
-  flex-flow: wrap;
-  padding-top: 10px;
-  padding-left: 10px;
-  background-image: url("../assets/snailbox-main20p.jpg");
+  min-height: 100vh;
+  background-image: url("../assets/snailbox-main30pColor.jpg");
   background-position: bottom;
   background-repeat: no-repeat;
   background-size: cover;
+}
+
+.action-container {
+  flex-flow: wrap;
 }
 
 .user-section {
@@ -73,15 +74,11 @@
   .user-section {
     width: 400px !important;
   }
-
-  .user-home-wrap {
-    padding: 10px !important;
-  }
 }
 
 @media (max-width: 1160px) {
-  .user-home-wrap {
-    padding: 10px !important;
+  .action-container {
+    padding: 0 10px 10px 10px !important;
   }
 }
 

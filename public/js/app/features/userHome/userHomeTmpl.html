@@ -1,110 +1,117 @@
-<user-header></user-header>
-<section class="user-home-wrap flex-base-row-center-start">
+<section class="user-home-wrapper">
+  <user-header></user-header>
 
-  <section class="user-section">
-    <div class="user-section-title flex-base-row-start default-cursor">
-      <img src="../assets/home-icon.svg" alt="my-address">
-      <p>My Address</p>
-    </div>
-    <div class="content-container flex-base-col-start default-cursor">
-      <div class="content-row">
-        <p>{{ userHomeCtrl.address.address1 }}</p>
-      </div>
-      <div class="content-row" ng-if="userHomeCtrl.address.address2">
-        <p>{{ userHomeCtrl.address.address2 }}</p>
-      </div>
-      <div class="content-row">
-        <p>{{ userHomeCtrl.address.city }} {{ userHomeCtrl.address.state }},&nbsp;
-          {{userHomeCtrl.address.postal_code}}</p>
-      </div>
-      <div class="content-row">
-        <p>{{ userHomeCtrl.address.country }}</p>
-      </div>
 
-      <div class="content-row actions actions-top flex-base-row-start" ng-click="userHomeCtrl.editAddress()">
-        <img src="../assets/circle-edit-icon.svg" alt="edit-address" style="width: 34px;">
-        <p>Edit Address</p>
+  <section class="flex-base-row-center-start action-container">
+
+    <section class="user-section">
+      <div class="user-section-title flex-base-row-start default-cursor">
+        <img src="../assets/home-icon.svg" alt="my-address">
+        <p>My Address</p>
       </div>
-      <div class="content-row actions flex-base-row-start">
-        <img src="../assets/plus-icon-blue.svg" alt="send-address" style="width: 34px;">
-        <p>Send My Address</p>
+      <div class="content-container flex-base-col-start default-cursor">
+        <div class="content-row">
+          <p>{{ userHomeCtrl.address.address1 }}</p>
+        </div>
+        <div class="content-row" ng-if="userHomeCtrl.address.address2">
+          <p>{{ userHomeCtrl.address.address2 }}</p>
+        </div>
+        <div class="content-row">
+          <p>{{ userHomeCtrl.address.city }} {{ userHomeCtrl.address.state }},&nbsp;
+            {{userHomeCtrl.address.postal_code}}</p>
+        </div>
+        <div class="content-row">
+          <p>{{ userHomeCtrl.address.country }}</p>
+        </div>
+
+        <div class="content-row actions actions-top flex-base-row-start" ng-click="userHomeCtrl.editAddress()">
+          <img src="../assets/circle-edit-icon.svg" alt="edit-address" style="width: 34px;">
+          <p>Edit Address</p>
+        </div>
+        <div class="content-row actions flex-base-row-start">
+          <img src="../assets/plus-icon-blue.svg" alt="send-address" style="width: 34px;">
+          <p>Send My Address</p>
+        </div>
+        <div class="content-row actions flex-base-row-start">
+          <img src="../assets/check-icon-blue.svg" alt="review-address-requests" style="width: 34px;">
+          <p>Review Address Requests</p>
+        </div>
       </div>
-      <div class="content-row actions flex-base-row-start">
-        <img src="../assets/check-icon-blue.svg" alt="review-address-requests" style="width: 34px;">
-        <p>Review Address Requests</p>
+    </section>
+
+    <section class="user-section">
+      <div class="user-section-title flex-base-row-start default-cursor">
+        <img src="../assets/latest-news-icon.svg" style="width: 34px;" alt="latest-news">
+        <p>Latest News</p>
       </div>
-    </div>
+      <div class="content-container flex-base-col-start default-cursor">
+        <div class="content-row">
+          <p style="text-align: center">The holiday season is quickly approaching!</p>
+        </div>
+        <img src="../assets/holiday-icon.svg" alt="holiday" style="width: 130px; padding: 10px;">
+        <div class="content-row" style="padding-bottom: 10px">
+          <p style="font-size: 13px;">Marketing messaging and current promos here. Marketing messaging and current
+            promos
+            here. </p>
+        </div>
+      </div>
+    </section>
+
+
+    <section class="user-section">
+      <div class="user-section-title flex-base-row-start default-cursor">
+        <img src="../assets/notebook-icon.svg" alt="address-book">
+        <p>Address Book</p>
+      </div>
+      <div class="content-container flex-base-col-start default-cursor">
+        <div class="content-row actions actions-top flex-base-row-start">
+          <img src="../assets/circle-edit-icon.svg" alt="edit-address" style="width: 34px;">
+          <p>Edit Address</p>
+        </div>
+        <div class="content-row actions flex-base-row-start">
+          <img src="../assets/plus-icon-blue.svg" alt="send-address" style="width: 34px;">
+          <p>Send My Address</p>
+        </div>
+        <div class="content-row actions flex-base-row-start">
+          <img src="../assets/check-icon-blue.svg" alt="review-address-requests" style="width: 34px;">
+          <p>Review Address Requests</p>
+        </div>
+        <div class="content-row actions flex-base-row-start">
+          <img src="../assets/check-icon-blue.svg" alt="review-address-requests" style="width: 34px;">
+          <p>Review Address Requests</p>
+        </div>
+        <div class="content-row actions flex-base-row-start">
+          <img src="../assets/check-icon-blue.svg" alt="review-address-requests" style="width: 34px;">
+          <p>Review Address Requests</p>
+        </div>
+        <div class="content-row actions flex-base-row-start">
+          <img src="../assets/check-icon-blue.svg" alt="review-address-requests" style="width: 34px;">
+          <p>Review Address Requests</p>
+        </div>
+
+      </div>
+    </section>
+
+    <!--<section class="user-section">-->
+    <!--<div class="user-section-title flex-base-row-start default-cursor">-->
+    <!--<img src="../assets/check-icon.svg" style="width: 34px;" alt="accept-request">-->
+    <!--<p>Accept Request</p>-->
+    <!--</div>-->
+    <!--<div class="content-container flex-base-col-start default-cursor">-->
+    <!--</div>-->
+    <!--</section>-->
+
+    <!--<section class="user-section">-->
+    <!--<div class="user-section-title flex-base-row-start default-cursor">-->
+    <!--<img src="../assets/plus-icon.svg" style="width: 34px;" alt="send-request">-->
+    <!--<p>Send Request</p>-->
+    <!--</div>-->
+    <!--<div class="content-container flex-base-col-start default-cursor">-->
+    <!--</div>-->
+    <!--</section>-->
+
   </section>
-
-  <section class="user-section">
-    <div class="user-section-title flex-base-row-start default-cursor">
-      <img src="../assets/latest-news-icon.svg" style="width: 34px;" alt="latest-news">
-      <p>Latest News</p>
-    </div>
-    <div class="content-container flex-base-col-start default-cursor">
-      <div class="content-row">
-        <p style="text-align: center">The holiday season is quickly approaching!</p>
-      </div>
-      <img src="../assets/holiday-icon.svg" alt="holiday" style="width: 130px; padding: 10px;">
-      <div class="content-row" style="padding-bottom: 10px">
-        <p style="font-size: 13px;">Marketing messaging and current promos here. Marketing messaging and current promos here. </p>
-      </div>
-    </div>
-  </section>
-
-
-  <section class="user-section">
-    <div class="user-section-title flex-base-row-start default-cursor">
-      <img src="../assets/notebook-icon.svg" alt="address-book">
-      <p>Address Book</p>
-    </div>
-    <div class="content-container flex-base-col-start default-cursor">
-      <div class="content-row actions actions-top flex-base-row-start">
-        <img src="../assets/circle-edit-icon.svg" alt="edit-address" style="width: 34px;">
-        <p>Edit Address</p>
-      </div>
-      <div class="content-row actions flex-base-row-start">
-        <img src="../assets/plus-icon-blue.svg" alt="send-address" style="width: 34px;">
-        <p>Send My Address</p>
-      </div>
-      <div class="content-row actions flex-base-row-start">
-        <img src="../assets/check-icon-blue.svg" alt="review-address-requests" style="width: 34px;">
-        <p>Review Address Requests</p>
-      </div>
-      <div class="content-row actions flex-base-row-start">
-        <img src="../assets/check-icon-blue.svg" alt="review-address-requests" style="width: 34px;">
-        <p>Review Address Requests</p>
-      </div>
-      <div class="content-row actions flex-base-row-start">
-        <img src="../assets/check-icon-blue.svg" alt="review-address-requests" style="width: 34px;">
-        <p>Review Address Requests</p>
-      </div>
-      <div class="content-row actions flex-base-row-start">
-        <img src="../assets/check-icon-blue.svg" alt="review-address-requests" style="width: 34px;">
-        <p>Review Address Requests</p>
-      </div>
-
-    </div>
-  </section>
-
-  <!--<section class="user-section">-->
-  <!--<div class="user-section-title flex-base-row-start default-cursor">-->
-  <!--<img src="../assets/check-icon.svg" style="width: 34px;" alt="accept-request">-->
-  <!--<p>Accept Request</p>-->
-  <!--</div>-->
-  <!--<div class="content-container flex-base-col-start default-cursor">-->
-  <!--</div>-->
-  <!--</section>-->
-
-  <!--<section class="user-section">-->
-  <!--<div class="user-section-title flex-base-row-start default-cursor">-->
-  <!--<img src="../assets/plus-icon.svg" style="width: 34px;" alt="send-request">-->
-  <!--<p>Send Request</p>-->
-  <!--</div>-->
-  <!--<div class="content-container flex-base-col-start default-cursor">-->
-  <!--</div>-->
-  <!--</section>-->
-
 </section>
+
 
 
