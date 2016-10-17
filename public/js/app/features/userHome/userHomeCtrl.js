@@ -19,8 +19,12 @@ angular.module('snailbox').controller('userHomeCtrl', function ($stateParams, $s
 
   userHomeCtrl.getUser();
   
-  userHomeCtrl.editAddress = function () {
+  userHomeCtrl.goToEditAddress = function () {
     $location.path('/user/' + $stateParams.id + '/edit');
+  };
+
+  userHomeCtrl.goToSendAddress = function () {
+    $location.path('/user/' + $stateParams.id + '/send');
   };
 
 });

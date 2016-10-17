@@ -24,11 +24,11 @@
           <p>{{ userHomeCtrl.address.country }}</p>
         </div>
 
-        <div class="content-row actions actions-top flex-base-row-start" ng-click="userHomeCtrl.editAddress()">
+        <div class="content-row actions actions-top flex-base-row-start" ng-click="userHomeCtrl.goToEditAddress()">
           <img src="../assets/circle-edit-icon.svg" alt="edit-address" style="width: 34px;">
           <p>Edit Address</p>
         </div>
-        <div class="content-row actions flex-base-row-start">
+        <div class="content-row actions flex-base-row-start" ng-click="userHomeCtrl.goToSendAddress()">
           <img src="../assets/plus-icon-blue.svg" alt="send-address" style="width: 34px;">
           <p>Send My Address</p>
         </div>
