@@ -1,6 +1,54 @@
 <section class="user-home-wrapper">
+  <!-- TODO get rid of the header, it looks dumb-->
   <user-header></user-header>
 
+  <div class="send-container flex-base-row-center action-container">
+    <section class="search-user-section">
+      <div class="search-user-section-title flex-base-row-start default-cursor">
+        <img src="../assets/search-icon.svg" alt="my-address">
+        <p>Search Users</p>
+      </div>
+      <div class="search-content-container flex-base-col-start default-cursor">
+        <div class="content-row">
+          <p style="font-size: 15px;margin-top: 10px;"> Search other SnailBox users and click the '+' to send a request to add them to
+            your Address Book. </p>
+        </div>
+        <div class="search-users-container flex-base-row-center">
+          <div angucomplete-alt
+               id="allUsers"
+               placeholder="Search by Name..."
+               title-field="firstName,lastName"
+               description-field="firstName,lastName"
+               search-fields="firstName,lastName"
+               local-data="sendAddressCtrl.allUsers"
+               selected-object="selectedUser"
+               input-class="search-input"
+               pause="300"
+               minlength="3"
+               autofocus>
+          </div>
+          <img src="../assets/plus-icon-blue.svg" alt="">
 
-  <button ng-click="sendAddressCtrl.getContacts()">Get Contacts</button>
+        </div>
+      </div>
+
+    </section>
+
+    <section class="user-section">
+      <div class="user-section-title flex-base-row-start default-cursor">
+        <img src="../assets/mailbox-up-icon.svg" alt="my-address">
+        <p>Invite to SnailBox</p>
+      </div>
+      <div class="content-container flex-base-col-start default-cursor">
+        <div class="content-row">
+          <p style="font-size: 15px;"> Can't find anyone you know? Send them an email and invite them to SnailBox. </p>
+        </div>
+      </div>
+
+    </section>
+
+
+  </div>
+
+
 </section>

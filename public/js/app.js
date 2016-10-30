@@ -1,6 +1,7 @@
 'use strict';
 
-angular.module('snailbox', ['ui.router']).config(function ($stateProvider, $urlRouterProvider, $httpProvider) {
+angular.module('snailbox', ['ui.router', 'angucomplete-alt'])
+  .config(function ($stateProvider, $urlRouterProvider, $httpProvider) {
 
   $stateProvider
     .state('login', {

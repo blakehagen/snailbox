@@ -1,11 +1,15 @@
-angular.module('snailbox').controller('sendAddressCtrl', function ($state, $stateParams, $location, userService) {
-  var sendAddressCtrl = this;
+angular.module('snailbox')
+  .controller('sendAddressCtrl', function ($scope, $state, $stateParams, $location, userService) {
+    var sendAddressCtrl = this;
 
-  sendAddressCtrl.getContacts = function () {
-    console.log('test getting contacts');
-  };
-  
-  
-  
-  
-});
+    sendAddressCtrl.getAllUsers = function () {
+      userService.getAllUsers().then(function (allUsers) {
+        sendAddressCtrl.allUsers = allUsers;
+        console.log('sendAddressCtrl.allUsers', sendAddressCtrl.allUsers);
+      });
+    };
+
+    sendAddressCtrl.getAllUsers();
+
+
+  });
