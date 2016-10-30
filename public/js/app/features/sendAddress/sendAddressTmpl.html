@@ -15,7 +15,7 @@
         </div>
         <div class="search-users-container flex-base-row-center">
           <div angucomplete-alt
-               id="allUsers"
+               id="allUserSearch"
                placeholder="Search by Name..."
                title-field="firstName,lastName"
                description-field="firstName,lastName"
@@ -28,25 +28,28 @@
                minlength="3"
                autofocus>
           </div>
-          <img src="../assets/plus-icon-blue.svg" alt="">
+          <img src="../assets/plus-icon-blue.svg" alt="Add User" ng-click="sendAddressCtrl.addUserToRequests(selectedUser.originalObject)">
+        </div>
 
+        <div>
+          <p ng-repeat="userToAdd in sendAddressCtrl.requestedUsers ">{{ userToAdd.firstName }} {{ userToAdd.lastName }}</p>
         </div>
       </div>
 
     </section>
 
-    <section class="user-section">
-      <div class="user-section-title flex-base-row-start default-cursor">
-        <img src="../assets/mailbox-up-icon.svg" alt="my-address">
-        <p>Invite to SnailBox</p>
-      </div>
-      <div class="content-container flex-base-col-start default-cursor">
-        <div class="content-row">
-          <p style="font-size: 15px;"> Can't find anyone you know? Send them an email and invite them to SnailBox. </p>
-        </div>
-      </div>
+    <!--<section class="user-section">-->
+      <!--<div class="user-section-title flex-base-row-start default-cursor">-->
+        <!--<img src="../assets/mailbox-up-icon.svg" alt="my-address">-->
+        <!--<p>Invite to SnailBox</p>-->
+      <!--</div>-->
+      <!--<div class="content-container flex-base-col-start default-cursor">-->
+        <!--<div class="content-row">-->
+          <!--<p style="font-size: 15px;"> Can't find anyone you know? Send them an email and invite them to SnailBox. </p>-->
+        <!--</div>-->
+      <!--</div>-->
 
-    </section>
+    <!--</section>-->
 
 
   </div>
