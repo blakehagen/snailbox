@@ -31,8 +31,8 @@ angular.module('snailbox').service('userService', function ($http, API) {
   this.getAllUsers = function () {
     return $http({
       method: 'GET',
-      // url: API.SERVER_HEROKU + 'users'
-      url: API.SERVER_LOCAL_MDB + 'users'
+      url: API.SERVER_HEROKU + 'users'
+      // url: API.SERVER_LOCAL_MDB + 'users'
     }).then(function (response) {
       return response.data;
     }).catch(function (error) {
