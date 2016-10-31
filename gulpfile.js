@@ -107,7 +107,7 @@ gulp.task('compile-less', function (done) {
     .pipe(plumber())
     .pipe(less())
     .pipe(gconcat('app.css'))
-    .pipe(minifyCss())
+    .pipe(minifyCss({processImport: false}))
     .pipe(autoprefixer({browsers: ['last 2 version', '> 5%']}))
     .pipe(gulp.dest(config.build + 'styles'));
   done();

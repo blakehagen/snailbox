@@ -13,6 +13,9 @@ angular.module('snailbox')
 
     sendAddressCtrl.requestedUsers    = [];
     sendAddressCtrl.addUserToRequests = function (selectedUser) {
+      if(!selectedUser){
+        return false;
+      }
       sendAddressCtrl.requestedUsers.push(selectedUser);
       $scope.$broadcast('angucomplete-alt:clearInput');
       console.log('sendAddressCtrl.requestedUsers', sendAddressCtrl.requestedUsers);
