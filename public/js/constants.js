@@ -1,6 +1,12 @@
 'use strict';
 
 angular.module('snailbox')
+  // LODASH //
+  .constant('_', window._)
+  .run(function ($rootScope) {
+    $rootScope._ = window._;
+  })
+
   .constant('AUTH_EVENTS', {
     notAuthenticated: 'auth-not-authenticated',
     notAuthorized: 'auth-not-authorized'

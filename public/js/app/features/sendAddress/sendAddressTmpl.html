@@ -31,8 +31,10 @@
           <img src="../assets/plus-icon-blue.svg" alt="Add User" ng-click="sendAddressCtrl.addUserToRequests(selectedUser.originalObject)">
         </div>
 
-        <div>
-          <p ng-repeat="userToAdd in sendAddressCtrl.requestedUsers ">{{ userToAdd.firstName }} {{ userToAdd.lastName }}</p>
+        <div class="invitations-box">
+          <div class="name" ng-repeat="user in sendAddressCtrl.requestedUsers ">
+            <img src="../assets/minus-icon.svg" alt="Remove User" ng-click="sendAddressCtrl.removeUserFromRequests(user)">
+            {{ user.firstName }} {{ user.lastName }}</div>
         </div>
       </div>
 
