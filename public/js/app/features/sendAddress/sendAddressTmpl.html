@@ -10,10 +10,12 @@
       </div>
       <div class="search-content-container flex-base-col-start default-cursor">
         <div class="content-row">
-          <p style="font-size: 15px;margin-top: 10px;"> Search other SnailBox users and request to add them to
-            your Address Book. </p>
+          <p style="font-size: 15px;"> Search other SnailBox users and request to add them to your Address Book. </p>
+
+          <p style="font-size: 13px;"> <span style="font-weight: 400">Tip:</span>  "Send Address Request" button will appear after you have selected at least one user. </p>
+
         </div>
-        <div class="search-users-container flex-base-row-center">
+        <div class="search-users-container flex-base-row-start">
           <div angucomplete-alt
                id="allUserSearch"
                placeholder="Search by Name..."
@@ -25,16 +27,21 @@
                input-class="search-input"
                match-class="highlight"
                pause="200"
-               minlength="3"
-               autofocus>
+               minlength="3">
           </div>
           <img src="../assets/plus-icon-blue.svg" alt="Add User" ng-click="sendAddressCtrl.addUserToRequests(selectedUser.originalObject)">
         </div>
 
-        <div class="invitations-box">
-          <div class="name" ng-repeat="user in sendAddressCtrl.requestedUsers ">
-            <img src="../assets/minus-icon.svg" alt="Remove User" ng-click="sendAddressCtrl.removeUserFromRequests(user)">
-            {{ user.firstName }} {{ user.lastName }}</div>
+        <div class="invitations-container flex-base-row-start">
+          <div class="invitations-box">
+            <div class="name" ng-repeat="user in sendAddressCtrl.requestedUsers ">
+              <img src="../assets/minus-icon.svg" alt="Remove User" ng-click="sendAddressCtrl.removeUserFromRequests(user)">
+              {{ user.firstName }} {{ user.lastName }}</div>
+          </div>
+        </div>
+
+        <div class="send-invites-button flex-base-col-center" ng-if="sendAddressCtrl.requestedUsers.length > 0">
+          <p>Send Address Request</p>
         </div>
       </div>
 

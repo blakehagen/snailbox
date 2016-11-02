@@ -13,7 +13,10 @@ angular.module('snailbox')
 
     sendAddressCtrl.requestedUsers    = [];
     sendAddressCtrl.addUserToRequests = function (selectedUser) {
-      if(!selectedUser){
+      if (!selectedUser) {
+        return false;
+      }
+      if (_.findIndex(sendAddressCtrl.requestedUsers, {_id: selectedUser._id}) >= 0) {
         return false;
       }
       sendAddressCtrl.requestedUsers.push(selectedUser);
