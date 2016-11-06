@@ -30,5 +30,15 @@ angular.module('snailbox')
       console.log('sendAddressCtrl.requestedUsers', sendAddressCtrl.requestedUsers);
     };
 
+    sendAddressCtrl.sendInvites = function () {
+      var ids = [];
+      _.each(sendAddressCtrl.requestedUsers, function(invitation){
+        ids.push(invitation._id);
+      });
+      userService.sendInvites($stateParams.id, ids).then(function (response) {
+        console.log('response', response);
+      });
+    };
+
 
   });
