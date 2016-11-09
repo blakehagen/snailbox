@@ -27,4 +27,8 @@ angular.module('snailbox').controller('userHomeCtrl', function ($stateParams, $s
     $location.path('/user/' + $stateParams.id + '/send');
   };
 
+  userHomeCtrl.goToReview = function () {
+    $location.path('/user/' + $stateParams.id + '/review');
+  };
+
 });

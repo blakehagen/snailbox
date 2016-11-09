@@ -22,25 +22,25 @@
                title-field="firstName,lastName"
                description-field="firstName,lastName"
                search-fields="firstName,lastName"
-               local-data="sendAddressCtrl.allUsers"
+               local-data="sendCtrl.allUsers"
                selected-object="selectedUser"
                input-class="search-input"
                match-class="highlight"
                pause="200"
                minlength="3">
           </div>
-          <img src="../assets/plus-icon-blue.svg" alt="Add User" ng-click="sendAddressCtrl.addUserToRequests(selectedUser.originalObject)">
+          <img src="../assets/plus-icon-blue.svg" alt="Add User" ng-click="sendCtrl.addUserToRequests(selectedUser.originalObject)">
         </div>
 
         <div class="invitations-container flex-base-row-start">
           <div class="invitations-box">
-            <div class="name" ng-repeat="user in sendAddressCtrl.requestedUsers ">
-              <img src="../assets/minus-icon.svg" alt="Remove User" ng-click="sendAddressCtrl.removeUserFromRequests(user)">
+            <div class="name" ng-repeat="user in sendCtrl.requestedUsers ">
+              <img src="../assets/minus-icon.svg" alt="Remove User" ng-click="sendCtrl.removeUserFromRequests(user)">
               {{ user.firstName }} {{ user.lastName }}</div>
           </div>
         </div>
 
-        <div class="send-invites-button flex-base-col-center" ng-if="sendAddressCtrl.requestedUsers.length > 0" ng-click="sendAddressCtrl.sendInvites()">
+        <div class="send-invites-button flex-base-col-center" ng-if="sendCtrl.requestedUsers.length > 0" ng-click="sendCtrl.sendInvites()">
           <p>Send Address Request</p>
         </div>
       </div>

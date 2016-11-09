@@ -1,0 +1,51 @@
+@import "base.less";
+
+.review-container {
+  .review-user-section {
+    width: 360px;
+    border: 1px solid #455A64;
+    border-radius: 2px;
+    margin: 6px 10px 10px;
+    background: #FFFFFF;
+    box-shadow: 2px 2px 2px #AAA;
+    .review-user-section-title {
+      height: 40px;
+      width: 100%;
+      padding: 26px 20px;
+      background: #455A64;
+      //margin-bottom: 6px;
+      img {
+        width: 28px;
+        cursor: pointer;
+      }
+      p {
+        color: #FFFFFF;
+        font-size: 22px;
+        font-family: 'Lato', 'Open Sans', sans-serif;
+        font-weight: 300;
+        margin-left: 12px;
+      }
+    }
+    .review-content-container {
+      border:1px solid red;
+
+      .content-row {
+        border:1px solid green;
+        padding: 0 16px;
+        width: 100%;
+        p {
+          font-family: 'Open Sans', sans-serif;
+          font-weight: 100;
+          color: #455A64;
+          padding: 10px 4px;
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 1280px) {
+  .review-user-section {
+    width: 400px !important;
+  }
+}

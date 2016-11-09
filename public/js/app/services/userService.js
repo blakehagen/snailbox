@@ -54,5 +54,17 @@ angular.module('snailbox').service('userService', function ($http, API) {
     });
   };
 
+  this.getConnections = function (id) {
+    return $http({
+      method: 'GET',
+      url: API.SERVER_HEROKU + 'user/' + id + '/connections'
+      // url: API.SERVER_LOCAL_MDB + 'user/' + id + '/connections'
+    }).then(function (response) {
+      return response.data;
+    }).catch(function (error) {
+      return error;
+    });
+  };
+
 
 });

@@ -1,0 +1,24 @@
+<section class="user-home-wrapper">
+  <!-- TODO get rid of the header, it looks dumb-->
+  <user-header></user-header>
+
+  <div class="review-container flex-base-row-center action-container">
+    <section class="review-user-section">
+      <div class="review-user-section-title flex-base-row-start default-cursor">
+        <img src="../assets/search-icon.svg" alt="my-address">
+        <p>Requests Received</p>
+      </div>
+      <div class="review-content-container flex-base-col-start default-cursor">
+        <div class="content-row flex-base-row-center-start">
+          <p style="font-size: 15px;"> Check box to accept the request to share addresses. Test text is going here. Cool
+            things there.</p>
+        </div>
+        <div class="content-row flex-base-row-start" ng-repeat="invite in reviewCtrl.received">
+          {{invite.firstName}} {{ invite.lastName }}
+        </div>
+      </div>
+    </section>
+  </div>
+
+
+</section>
