@@ -13,10 +13,8 @@
       width: 100%;
       padding: 26px 20px;
       background: #455A64;
-      //margin-bottom: 6px;
       img {
-        width: 28px;
-        cursor: pointer;
+        width: 36px;
       }
       p {
         color: #FFFFFF;
@@ -27,10 +25,7 @@
       }
     }
     .review-content-container {
-      border:1px solid red;
-
       .content-row {
-        border:1px solid green;
         padding: 0 16px;
         width: 100%;
         p {
@@ -39,6 +34,28 @@
           color: #455A64;
           padding: 10px 4px;
         }
+      }
+      .request-row {
+        width: 100%;
+        padding: 0 10px 0 20px;
+        cursor: pointer;
+        &:hover {
+          background: #F1F1F1;
+        }
+        &:last-child {
+          margin-bottom: 6px;
+        }
+        img {
+          width: 20px;
+          margin-right: 6px;
+        }
+        p {
+          font-family: 'Open Sans', sans-serif;
+          font-weight: 100;
+          color: #455A64;
+          padding: 4px;
+        }
+
       }
     }
   }

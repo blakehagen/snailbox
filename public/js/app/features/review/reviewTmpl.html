@@ -5,16 +5,20 @@
   <div class="review-container flex-base-row-center action-container">
     <section class="review-user-section">
       <div class="review-user-section-title flex-base-row-start default-cursor">
-        <img src="../assets/search-icon.svg" alt="my-address">
+        <img src="../assets/mailbox-down-icon.svg" alt="my-address">
         <p>Requests Received</p>
       </div>
       <div class="review-content-container flex-base-col-start default-cursor">
         <div class="content-row flex-base-row-center-start">
-          <p style="font-size: 15px;"> Check box to accept the request to share addresses. Test text is going here. Cool
+          <p style="font-size: 15px; padding-bottom: 4px;"> Check box to accept the request to share addresses. Test text is going here. Cool
             things there.</p>
         </div>
-        <div class="content-row flex-base-row-start" ng-repeat="invite in reviewCtrl.received">
-          {{invite.firstName}} {{ invite.lastName }}
+        <div class="request-row flex-base-row-start"
+             ng-repeat="invite in reviewCtrl.received track by $index"
+             ng-click="reviewCtrl.selectUser(invite.selected, invite, this)">
+          <img src="../assets/checkbox-unchecked.svg" alt="checkbox-unchecked" ng-if="!invite.selected">
+          <img src="../assets/checkbox-checked.svg" alt="checkbox-checked" ng-if="invite.selected">
+          <p>{{invite.firstName}} {{ invite.lastName }}</p>
         </div>
       </div>
     </section>
