@@ -23,7 +23,6 @@ angular.module('snailbox')
     reviewCtrl.selectUser = function (selected, invite, thisUser) {
       invite.selected = !invite.selected;
       console.log('invite', invite);
-      console.log('thisUser', thisUser);
       console.log('selected', selected);
     };
 

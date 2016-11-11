@@ -12,6 +12,15 @@ angular.module('snailbox').directive('userHeader', function () {
       this.userHome = function () {
         $location.path('/user/' + $stateParams.id);
       };
+      this.edit = function () {
+        $location.path('/user/' + $stateParams.id + '/edit');
+      };
+      this.send = function () {
+        $location.path('/user/' + $stateParams.id + '/send');
+      };
+      this.review = function () {
+        $location.path('/user/' + $stateParams.id + '/review');
+      };
     },
     bindToController: true
   };
