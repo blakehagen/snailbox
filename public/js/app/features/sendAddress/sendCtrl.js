@@ -1,6 +1,7 @@
 angular.module('snailbox')
   .controller('sendCtrl', function ($rootScope, $scope, $state, $stateParams, $location, userService, _) {
-    var sendCtrl = this;
+    var sendCtrl         = this;
+    sendCtrl.readyToSend = false;
 
     // =============== //
     sendCtrl.getAllUsers = function () {
@@ -40,6 +41,10 @@ angular.module('snailbox')
     sendCtrl.removeUserFromRequests = function (userToRemove) {
       var removeItemIdx = _.findIndex(sendCtrl.requestedUsers, {_id: userToRemove._id});
       sendCtrl.requestedUsers.splice(removeItemIdx, 1);
+    };
+
+    sendCtrl.setReady = function () {
+      sendCtrl.readyToSend = !sendCtrl.readyToSend;
     };
 
     sendCtrl.sendInvites = function () {
