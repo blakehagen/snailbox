@@ -13,12 +13,9 @@
           <div class="content-row">
             <p style="font-size: 17px;"> Search other SnailBox users and request to add them to your Address Book. </p>
           </div>
-          <div class="content-row">
-            <p style="font-size: 15px;"><span style="font-weight: 400"> Tip:</span>&nbsp; Click the "Done Adding" button after you have selected at least one user. You may select multiple users before sending the address requests.</p>
-          </div>
 
           <div class="content-row">
-            <p style="font-size: 15px;"><span style="font-weight: 400"> Tip:</span>&nbsp; If there is a user you cannot add, you are either already connected, have an invite from the user, or have already sent them an invite.</p>
+            <p style="font-size: 15px;"><span style="font-weight: 400"> Note:</span>&nbsp; If there is a user you cannot add, you are either already connected, have an invite from the user, or have already sent them an invite.</p>
           </div>
         </div>
 
@@ -50,11 +47,6 @@
         </div>
 
         <div class="send-buttons-container flex-base-row-start">
-          <!--<div class="send-invites-button flex-base-col-center" ng-if="sendCtrl.requestedUsers.length > 0"-->
-               <!--ng-click="sendCtrl.sendInvites()">-->
-            <!--<p>Send Address Request</p>-->
-          <!--</div>-->
-          <!--sendCtrl.requestedUsers.length > 0-->
           <div class="btn flex-base-col-center"
                ng-show="!sendCtrl.readyToSend && sendCtrl.requestedUsers.length > 0"
                ng-click="sendCtrl.setReady()">
@@ -90,6 +82,4 @@
 
 
   </div>
-
-
 </section>
