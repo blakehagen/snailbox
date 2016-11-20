@@ -2,6 +2,7 @@
 
 angular.module('snailbox').controller('userHomeCtrl', function ($stateParams, $state, $location, userService) {
   var userHomeCtrl = this;
+  userHomeCtrl.loading = true;
 
   // INITIAL LOAD DATA //
   userHomeCtrl.getUser = function () {
@@ -12,7 +13,8 @@ angular.module('snailbox').controller('userHomeCtrl', function ($stateParams, $s
         }
       console.log('user', user);
         userHomeCtrl.address = user.address;
-    }).catch(function (error) {
+        userHomeCtrl.loading = false;
+      }).catch(function (error) {
       $state.go('login');
       console.log('error', error);
     });

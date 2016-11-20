@@ -8,7 +8,7 @@
         <p>My Address</p>
       </div>
       <div class="content-container flex-base-col-start default-cursor">
-        <div class="address-container flex-base-col-start">
+        <div class="address-container flex-base-col-start" ng-if="!userHomeCtrl.loading">
 
           <div class="content-row">
             <p>{{ userHomeCtrl.address.address1 }}</p>
@@ -22,6 +22,23 @@
           </div>
           <div class="content-row">
             <p>{{ userHomeCtrl.address.country }}</p>
+          </div>
+        </div>
+
+        <div class="loading-container flex-base-col-center" ng-if="userHomeCtrl.loading">
+          <div class="sk-fading-circle">
+            <div class="sk-circle1 sk-circle"></div>
+            <div class="sk-circle2 sk-circle"></div>
+            <div class="sk-circle3 sk-circle"></div>
+            <div class="sk-circle4 sk-circle"></div>
+            <div class="sk-circle5 sk-circle"></div>
+            <div class="sk-circle6 sk-circle"></div>
+            <div class="sk-circle7 sk-circle"></div>
+            <div class="sk-circle8 sk-circle"></div>
+            <div class="sk-circle9 sk-circle"></div>
+            <div class="sk-circle10 sk-circle"></div>
+            <div class="sk-circle11 sk-circle"></div>
+            <div class="sk-circle12 sk-circle"></div>
           </div>
         </div>
 
