@@ -1,6 +1,7 @@
 angular.module('snailbox')
   .controller('reviewCtrl', function ($stateParams, $location, userService, _) {
-    var reviewCtrl = this;
+    var reviewCtrl     = this;
+    reviewCtrl.loading = true;
 
     // INITIAL LOAD DATA //
     reviewCtrl.getUser = function () {
@@ -10,6 +11,7 @@ angular.module('snailbox')
           _.each(reviewCtrl.received, function (user) {
             user.selected = false;
           });
+          reviewCtrl.loading = false;
           console.log('reviewCtrl.received', reviewCtrl.received);
         }).catch(function (error) {
         console.log('error', error);
@@ -28,7 +30,7 @@ angular.module('snailbox')
     };
 
     reviewCtrl.acceptInvites = function () {
-      var acceptedRequests     = [];
+      var acceptedRequests = [];
       _.each(reviewCtrl.received, function (request) {
         if (request.selected) {
           acceptedRequests.push(request._id);
