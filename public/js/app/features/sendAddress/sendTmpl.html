@@ -5,7 +5,7 @@
   <div class="send-container flex-base-row-center">
     <section class="search-user-section">
       <div class="search-user-section-title flex-base-row-start default-cursor">
-        <img src="../assets/search-icon.svg" alt="my-address">
+        <img src="../assets/search-icon.svg" alt="Search">
         <p>Search Users</p>
       </div>
       <div class="search-content-container flex-base-col-start default-cursor">
@@ -50,12 +50,12 @@
           <div class="btn flex-base-col-center"
                ng-show="!sendCtrl.readyToSend && sendCtrl.requestedUsers.length > 0"
                ng-click="sendCtrl.setReady()">
-            <p>Done Adding</p>
+            <p>Done</p>
           </div>
           <div class="btn add-more-btn flex-base-col-center"
                ng-if="sendCtrl.readyToSend "
                ng-click="sendCtrl.setReady()">
-            <p>Add More</p>
+            <p>Cancel</p>
           </div>
           <div class="btn flex-base-col-center"
                ng-if="sendCtrl.readyToSend && sendCtrl.requestedUsers.length > 0"
