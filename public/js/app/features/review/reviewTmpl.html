@@ -19,23 +19,17 @@
           <img src="../assets/checkbox-checked.svg" alt="checkbox-checked" ng-show="invite.selected">
           <p><span id="name">{{invite.firstName}} {{ invite.lastName }}</span> &nbsp;({{ invite.email }})</p>
         </div>
-
       </div>
 
       <div class="review-buttons-container flex-base-row-start">
-        <div class="btn cancel-btn flex-base-col-center">
+        <div class="btn cancel-btn flex-base-col-center" ng-click="reviewCtrl.cancel()">
           <p>Cancel</p>
         </div>
-        <div class="btn flex-base-col-center">
+        <div class="btn flex-base-col-center" ng-click="reviewCtrl.acceptInvites()">
           <p>Save</p>
         </div>
       </div>
 
-
-
-
     </section>
   </div>
-
-
 </section>

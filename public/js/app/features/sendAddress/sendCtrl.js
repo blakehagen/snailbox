@@ -3,7 +3,7 @@ angular.module('snailbox')
     var sendCtrl         = this;
     sendCtrl.readyToSend = false;
 
-    // =============== //
+    // INITIAL LOAD DATA //
     sendCtrl.getAllUsers = function () {
       userService.getAllUsers().then(function (allUsers) {
         sendCtrl.allUsers  = allUsers;
@@ -20,7 +20,7 @@ angular.module('snailbox')
     };
 
     sendCtrl.getAllUsers();
-    // =============== //
+    //END INITIAL LOAD DATA //
 
     sendCtrl.requestedUsers    = [];
     sendCtrl.addUserToRequests = function (selectedUser) {

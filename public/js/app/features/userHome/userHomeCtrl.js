@@ -3,6 +3,7 @@
 angular.module('snailbox').controller('userHomeCtrl', function ($stateParams, $state, $location, userService) {
   var userHomeCtrl = this;
 
+  // INITIAL LOAD DATA //
   userHomeCtrl.getUser = function () {
     userService.getUserById($stateParams.id)
       .then(function (user) {
@@ -18,7 +19,8 @@ angular.module('snailbox').controller('userHomeCtrl', function ($stateParams, $s
   };
 
   userHomeCtrl.getUser();
-  
+  //END INITIAL LOAD DATA //
+
   userHomeCtrl.goToEditAddress = function () {
     $location.path('/user/' + $stateParams.id + '/edit');
   };

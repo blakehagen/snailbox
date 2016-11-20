@@ -2,7 +2,7 @@ angular.module('snailbox')
   .controller('reviewCtrl', function ($stateParams, $location, userService, _) {
     var reviewCtrl = this;
 
-    // // // // //
+    // INITIAL LOAD DATA //
     reviewCtrl.getUser = function () {
       userService.getConnections($stateParams.id)
         .then(function (user) {
@@ -17,13 +17,24 @@ angular.module('snailbox')
     };
 
     reviewCtrl.getUser();
-    // // // // //
+    //END INITIAL LOAD DATA //
 
+    reviewCtrl.cancel = function () {
+      $location.path('/user/' + $stateParams.id);
+    };
 
     reviewCtrl.selectUser = function (selected, invite, thisUser) {
       invite.selected = !invite.selected;
-      console.log('invite', invite);
-      console.log('selected', selected);
+    };
+
+    reviewCtrl.acceptInvites = function () {
+      var acceptedRequests     = [];
+      _.each(reviewCtrl.received, function (request) {
+        if (request.selected) {
+          acceptedRequests.push(request._id);
+        }
+      });
+      console.log('acceptedRequests', acceptedRequests);
     };
 
 
