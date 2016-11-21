@@ -1,11 +1,11 @@
 <section class="user-home-wrapper">
-  <!--<user-header></user-header>-->
 
   <section class="flex-base-row-center-start">
     <section class="user-section">
       <div class="user-section-title flex-base-row-start default-cursor">
         <img src="../assets/home-icon.svg" alt="my-address">
         <p>My Address</p>
+        <user-header></user-header>
       </div>
       <div class="content-container flex-base-col-start default-cursor">
         <div class="address-container flex-base-col-start" ng-if="!userHomeCtrl.loading">
@@ -43,8 +43,9 @@
         </div>
 
         <div class="content-row actions flex-base-row-start">
-          <img src="../assets/check-icon-blue.svg" alt="Address Book" style="width: 34px;">
+          <img src="../assets/notebook-icon.svg" alt="Address Book" style="width: 34px;">
           <p>My Address Book</p>
+
         </div>
 
         <div class="content-row actions flex-base-row-start" ng-click="userHomeCtrl.goToSendAddress()">

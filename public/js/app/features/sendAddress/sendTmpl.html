@@ -1,12 +1,10 @@
 <section class="user-home-wrapper">
-  <!-- TODO get rid of the header, it looks dumb-->
-  <!--<user-header></user-header>-->
-
   <div class="send-container flex-base-row-center">
     <section class="search-user-section">
       <div class="search-user-section-title flex-base-row-start default-cursor">
         <img src="../assets/search-icon.svg" alt="Search">
         <p>Search Users</p>
+        <user-header></user-header>
       </div>
       <div class="search-content-container flex-base-col-start default-cursor">
         <div class="send-instructions">
@@ -40,7 +38,7 @@
         <div class="invitations-container flex-base-row-start">
           <div class="invitations-box">
             <div class="name" ng-repeat="user in sendCtrl.requestedUsers ">
-              <img src="../assets/minus-icon.svg" alt="Remove User" ng-click="sendCtrl.removeUserFromRequests(user)">
+              <img src="../assets/remove.svg" alt="Remove User" ng-click="sendCtrl.removeUserFromRequests(user)">
               {{ user.firstName }} {{ user.lastName }}
             </div>
           </div>
@@ -53,7 +51,7 @@
             <p>Done</p>
           </div>
           <div class="btn add-more-btn flex-base-col-center"
-               ng-if="sendCtrl.readyToSend "
+               ng-if="sendCtrl.readyToSend"
                ng-click="sendCtrl.setReady()">
             <p>Cancel</p>
           </div>

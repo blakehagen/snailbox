@@ -43,6 +43,10 @@ angular.module('snailbox')
       sendCtrl.requestedUsers.splice(removeItemIdx, 1);
     };
 
+    sendCtrl.cancel = function () {
+      $location.path('/user/' + $stateParams.id);
+    };
+
     sendCtrl.setReady = function () {
       sendCtrl.readyToSend = !sendCtrl.readyToSend;
     };
