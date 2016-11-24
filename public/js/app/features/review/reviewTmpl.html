@@ -4,7 +4,7 @@
     <section class="review-user-section">
       <div class="review-user-section-title flex-base-row-start default-cursor">
         <img src="../assets/mailbox-down-icon.svg" alt="Review">
-        <p>Add Requests</p>
+        <p>Accept Requests</p>
         <user-header></user-header>
       </div>
 
@@ -35,7 +35,14 @@
              ng-click="reviewCtrl.selectUser(invite.selected, invite, this)">
           <img src="../assets/checkbox-unchecked.svg" alt="checkbox-unchecked" ng-show="!invite.selected">
           <img src="../assets/checkbox-checked.svg" alt="checkbox-checked" ng-show="invite.selected">
-          <p><span id="name">{{invite.firstName}} {{ invite.lastName }}</span> &nbsp;({{ invite.email }})</p>
+          <div class="request-info">
+            <div class="info-col">
+              <p id="name">{{invite.firstName}} {{ invite.lastName }}</p>
+            </div>
+            <div class="info-col">
+              <p id="email">{{ invite.email }}</p>
+            </div>
+          </div>
         </div>
       </div>
 
