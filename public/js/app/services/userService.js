@@ -43,8 +43,8 @@ angular.module('snailbox').service('userService', function ($http, API) {
   this.sendInvites = function (id, invitationData) {
     return $http({
       method: 'PUT',
-      // url: API.SERVER_HEROKU + 'user/' + id,
-      url: API.SERVER_LOCAL_MDB + 'user/' + id,
+      url: API.SERVER_HEROKU + 'user/' + id,
+      // url: API.SERVER_LOCAL_MDB + 'user/' + id,
       dataType: 'json',
       data: invitationData
     }).then(function (response) {
