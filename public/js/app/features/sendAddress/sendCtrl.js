@@ -47,6 +47,10 @@ angular.module('snailbox')
       $location.path('/user/' + $stateParams.id);
     };
 
+    sendCtrl.goToReview = function () {
+      $location.path('/user/' + $stateParams.id + '/review');
+    };
+
     sendCtrl.setReady = function () {
       sendCtrl.readyToSend = !sendCtrl.readyToSend;
     };
@@ -58,6 +62,9 @@ angular.module('snailbox')
       });
       userService.sendInvites($stateParams.id, ids).then(function (response) {
         console.log('response', response);
+        if (response === 'Success') {
+          sendCtrl.goToReview();
+        }
       });
     };
 

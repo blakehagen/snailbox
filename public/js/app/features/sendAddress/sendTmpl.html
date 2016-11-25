@@ -12,9 +12,9 @@
             <p style="font-size: 17px;"> Search other SnailBox users and request to add them to your Address Book. </p>
           </div>
 
-          <div class="content-row">
-            <p style="font-size: 15px;"><span style="font-weight: 400"> Note:</span>&nbsp; If there is a user you cannot add, you are either already connected, have an invite from the user, or have already sent them an invite.</p>
-          </div>
+          <!--<div class="content-row">-->
+            <!--<p style="font-size: 15px;"><span style="font-weight: 400"> Note:</span>&nbsp; If there is a user you cannot add, you are either already connected, have an invite from the user, or have already sent them an invite.</p>-->
+          <!--</div>-->
         </div>
 
         <div class="search-users-container flex-base-row-start" ng-if="!sendCtrl.readyToSend">
@@ -35,7 +35,7 @@
                ng-click="sendCtrl.addUserToRequests(selectedUser.originalObject)">
         </div>
 
-        <div class="invitations-container flex-base-row-start">
+        <div class="invitations-container flex-base-row-start" ng-show="sendCtrl.requestedUsers.length > 0">
           <div class="invitations-box">
             <div class="name" ng-repeat="user in sendCtrl.requestedUsers ">
               <img src="../assets/remove.svg" alt="Remove User" ng-click="sendCtrl.removeUserFromRequests(user)">
@@ -59,6 +59,12 @@
                ng-if="sendCtrl.readyToSend && sendCtrl.requestedUsers.length > 0"
                ng-click="sendCtrl.sendInvites()">
             <p>Send</p>
+          </div>
+        </div>
+
+        <div class="send-instructions">
+          <div class="content-row">
+            <p style="font-size: 14px;"><span style="font-weight: 400"> Note:</span>&nbsp; If there is a user you cannot add, you are either already connected, have an invite from the user, or have already sent them an invite. <span class="review-link" ng-click="sendCtrl.goToReview()">Review requests here.</span></p>
           </div>
         </div>
 

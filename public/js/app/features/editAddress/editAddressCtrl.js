@@ -24,6 +24,11 @@ angular.module('snailbox').controller('editAddressCtrl', function ($stateParams,
       }
     });
   };
+  
+  editAddressCtrl.cancel = function () {
+    console.log('fired cancel!');
+    $location.path('/user/' + $stateParams.id);
+  };
 
 
 });
