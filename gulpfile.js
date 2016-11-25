@@ -12,6 +12,7 @@ const gconcat              = require('gulp-concat');
 const minifyHtml           = require('gulp-minify-html');
 const minifyCss            = require('gulp-minify-css');
 const imagemin             = require('gulp-imagemin');
+const svgmin               = require('gulp-svgmin');
 const less                 = require('gulp-less');
 const inject               = require('gulp-inject');
 const autoprefixer         = require('gulp-autoprefixer');
@@ -94,8 +95,17 @@ gulp.task('optimize-js', ['template-cache', 'optimize-appJs', 'optimize-vendorJs
 // OPTIMIZE IMAGES //
 gulp.task('optimize-images', function (done) {
   log('Optimizing images...');
-  gulp.src('public/assets/**/*.*')
+  gulp.src(['public/assets/**/*.jpg', 'public/assets/**/*.png'])
     .pipe(imagemin())
+    .pipe(gulp.dest('build/assets'));
+  done();
+});
+
+// OPTIMIZE SVGs //
+gulp.task('optimize-svgs', function (done) {
+  log('Optimizing svgs...');
+  gulp.src('public/assets/**/*.svg')
+    .pipe(svgmin())
     .pipe(gulp.dest('build/assets'));
   done();
 });
@@ -129,7 +139,7 @@ gulp.task('optimize-styles', ['compile-less', 'optimize-vendor-css'], function (
 });
 
 // INJECT FILES TO BUILD INDEX //
-gulp.task('inject', ['optimize-js', 'optimize-styles', 'optimize-images'], function () {
+gulp.task('inject', ['optimize-js', 'optimize-styles', 'optimize-images', 'optimize-svgs'], function () {
   log('Injecting into build index...');
   var templateCache = config.build + 'templates/' + config.templateCache.file;
   var jsLib         = config.build + 'js/lib.js';
