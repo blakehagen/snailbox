@@ -113,7 +113,7 @@ gulp.task('optimize-svgs', function (done) {
 // COMPILE LESS --> CSS, CONCAT & MINIFY --> BUILD //
 gulp.task('compile-less', function (done) {
   log('Compiling LESS --> CSS...');
-  return gulp.src(config.less)
+  gulp.src(config.less)
     .pipe(plumber())
     .pipe(less())
     .pipe(gconcat('app.css'))
@@ -189,7 +189,7 @@ function serve() {
       log('files changed on restart:\n' + ev);
       setTimeout(function () {
         browserSync.notify('reloading...');
-        browserSync.reload({steam: false});
+        browserSync.reload({stream: true});
       }, 1000);
     })
     .on('start', function () {
@@ -209,7 +209,6 @@ function changeEvent(event) {
 }
 
 function startBrowserSync() {
-  console.log('browserSync Active? ', browserSync.active);
   if (args.nosync || browserSync.active) {
     return;
   }
