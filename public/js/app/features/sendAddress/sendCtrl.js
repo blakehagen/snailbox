@@ -6,16 +6,14 @@ angular.module('snailbox')
     // INITIAL LOAD DATA //
     sendCtrl.getAllUsers = function () {
       userService.getAllUsers().then(function (allUsers) {
-        sendCtrl.allUsers  = allUsers;
-        var currentUserIdx = _.findIndex(sendCtrl.allUsers, {_id: $stateParams.id});
-        var currentUser    = _.slice(sendCtrl.allUsers, currentUserIdx)[0];
-        sendCtrl.allUsers.splice(currentUserIdx, 1);
-        sendCtrl.connectionsAndRequests = _.concat(currentUser.connections, currentUser.pendingInvitationsSent, currentUser.pendingInvitationsRecieved);
-        _.each(sendCtrl.connectionsAndRequests, function (id, index) {
-          if (!id) {
-            sendCtrl.connectionsAndRequests.splice(index, 1);
-          }
-        });
+        sendCtrl.allUsers    = _.clone(allUsers);
+        var currentUserIdx   = _.findIndex(sendCtrl.allUsers, {_id: $stateParams.id});
+        sendCtrl.currentUser = sendCtrl.allUsers.splice(currentUserIdx, 1)[0];
+        sendCtrl.connectionsAndRequests = [];
+        sendCtrl.connectionsAndRequests = _.concat(sendCtrl.currentUser.connections, sendCtrl.currentUser.pendingInvitationsSent, sendCtrl.currentUser.pendingInvitationsReceived);
+
+        console.log('sendCtrl.connectionsAndRequests:', sendCtrl.connectionsAndRequests);
+        console.log('sendCtrl.currentUser:', sendCtrl.currentUser);
       });
     };
 
@@ -30,12 +28,16 @@ angular.module('snailbox')
       if (_.findIndex(sendCtrl.requestedUsers, {_id: selectedUser._id}) >= 0) {
         return false;
       }
-      if (_.includes(sendCtrl.connectionsAndRequests, selectedUser._id)) {
-        return false;
+      for (var i = 0; i < sendCtrl.connectionsAndRequests.length; i++) {
+        if (sendCtrl.connectionsAndRequests[i] === selectedUser._id) {
+          console.log('CANNOT ADD USER');
+          return false;
+        }
       }
 
-      sendCtrl.requestedUsers.push(selectedUser);
+      sendCtrl.requestedUsers = _.concat(sendCtrl.requestedUsers, selectedUser);
       $scope.$broadcast('angucomplete-alt:clearInput');
+
     };
 
     sendCtrl.removeUserFromRequests = function (userToRemove) {
