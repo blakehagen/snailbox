@@ -12,6 +12,7 @@ angular.module('snailbox')
         sendCtrl.connectionsAndRequests = [];
         sendCtrl.connectionsAndRequests = _.concat(sendCtrl.currentUser.connections, sendCtrl.currentUser.pendingInvitationsSent, sendCtrl.currentUser.pendingInvitationsReceived);
 
+        console.log('sendCtrl.allUsers:', sendCtrl.allUsers);
         console.log('sendCtrl.connectionsAndRequests:', sendCtrl.connectionsAndRequests);
         console.log('sendCtrl.currentUser:', sendCtrl.currentUser);
       });

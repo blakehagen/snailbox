@@ -37,6 +37,12 @@ angular.module('snailbox')
         }
       });
       console.log('acceptedRequests', acceptedRequests);
+      userService.saveConnections($stateParams.id, acceptedRequests).then(function (response) {
+        console.log('response', response);
+        reviewCtrl.getUser();
+      });
+
+
     };
 
 

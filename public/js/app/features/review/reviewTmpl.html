@@ -25,7 +25,7 @@
         </div>
       </div>
 
-      <div class="review-content-container flex-base-col-start default-cursor" ng-if="!reviewCtrl.loading">
+      <div class="review-content-container flex-base-col-start default-cursor" ng-if="!reviewCtrl.loading && reviewCtrl.received.length > 0">
         <div class="content-row flex-base-row-start">
           <p style="font-size: 16px;"> Check box to connect and share addresses.</p>
         </div>
@@ -46,7 +46,7 @@
         </div>
       </div>
 
-      <div class="review-buttons-container flex-base-row-start" ng-if="!reviewCtrl.loading">
+      <div class="review-buttons-container flex-base-row-start" ng-if="!reviewCtrl.loading && reviewCtrl.received.length > 0">
         <div class="btn cancel-btn flex-base-col-center" ng-click="reviewCtrl.cancel()">
           <p>Cancel</p>
         </div>
