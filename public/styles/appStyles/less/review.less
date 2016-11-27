@@ -17,7 +17,7 @@
       }
       p {
         color: #FFFFFF;
-        font-size: 20px;
+        font-size: 18px;
         font-family: 'Lato', 'Open Sans', sans-serif;
         font-weight: 300;
         margin-left: 15px;
@@ -38,7 +38,10 @@
       .request-row {
         width: 100%;
         padding: 0 10px 0 20px;
-        cursor: pointer;
+        .delete-sent-request {
+          cursor: pointer;
+          width: 19px;
+        }
         &:last-child {
           margin-bottom: 6px;
         }
@@ -55,10 +58,10 @@
               font-weight: 100;
               color: #455A64;
             }
-            #name {
+            .name {
               font-size: 17px;
             }
-            #email {
+            .email {
               font-size: 14px;
             }
           }

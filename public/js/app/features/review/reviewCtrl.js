@@ -7,12 +7,14 @@ angular.module('snailbox')
     reviewCtrl.getUser = function () {
       userService.getConnections($stateParams.id)
         .then(function (user) {
+          reviewCtrl.sent = user.pendingInvitationsSent;
           reviewCtrl.received = user.pendingInvitationsReceived;
           _.each(reviewCtrl.received, function (user) {
             user.selected = false;
           });
           reviewCtrl.loading = false;
           console.log('reviewCtrl.received', reviewCtrl.received);
+          console.log('reviewCtrl.sent', reviewCtrl.sent);
         }).catch(function (error) {
         console.log('error', error);
       });
@@ -37,13 +39,17 @@ angular.module('snailbox')
         }
       });
       console.log('acceptedRequests', acceptedRequests);
+      if(_.isEmpty(acceptedRequests)){
+        return false;
+      }
       userService.saveConnections($stateParams.id, acceptedRequests).then(function (response) {
         console.log('response', response);
         reviewCtrl.getUser();
       });
-
-
     };
-
+    
+    reviewCtrl.deleteSentRequest = function (inviteToDelete) {
+      console.log('inviteToDelete -->', inviteToDelete);
+    };
 
   });
