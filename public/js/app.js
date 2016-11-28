@@ -44,6 +44,12 @@ angular.module('snailbox', ['ui.router', 'angucomplete-alt'])
         url: '/user/:id/review',
         templateUrl: './app/features/review/reviewTmpl.html',
         controller: 'reviewCtrl as reviewCtrl'
+      })
+
+      .state('addresses', {
+        url: '/user/:id/addresses',
+        templateUrl: './app/features/addressBook/addressBook.html',
+        controller: 'addressBookCtrl as addressBookCtrl'
       });
 
     $urlRouterProvider

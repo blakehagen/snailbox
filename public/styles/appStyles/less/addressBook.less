@@ -1,0 +1,94 @@
+@import "base.less";
+
+.address-book-container {
+  .loading-container {
+    min-height: 90px;
+  }
+  .address-book-section {
+    max-width: 700px;
+    width: 100%;
+    .address-book-section-title {
+      height: 40px;
+      width: 100%;
+      padding: 26px 15px;
+      background: #455A64;
+      img {
+        width: 28px;
+      }
+      p {
+        color: #FFFFFF;
+        font-size: 18px;
+        font-family: 'Lato', 'Open Sans', sans-serif;
+        font-weight: 300;
+        margin-left: 15px;
+      }
+    }
+    .address-book-content-container {
+      min-height: 90px;
+      .content-row {
+        padding: 4px 16px;
+        width: 100%;
+        p {
+          font-family: 'Open Sans', sans-serif;
+          font-weight: 100;
+          color: #455A64;
+          padding: 10px 4px;
+        }
+      }
+      .row {
+        cursor: pointer;
+        width: 100%;
+        padding: 8px 10px 8px 20px;
+        border-bottom: 1px solid #CCCCCC;
+        &:last-child {
+          margin-bottom: 6px;
+        }
+        img {
+          width: 40px;
+          margin-top: 1px;
+          margin-right: 10px;
+        }
+        .connection-info {
+          padding: 4px;
+          .info-col {
+            p {
+              font-family: 'Open Sans', sans-serif;
+              font-weight: 100;
+              color: #455A64;
+            }
+            .name {
+              font-size: 17px;
+            }
+            .email {
+              font-size: 12px;
+            }
+          }
+        }
+      }
+    }
+    .review-buttons-container {
+      margin-top: 11px;
+      margin-bottom: 24px;
+      padding-left: 20px;
+      .btn {
+        background: @base;
+        border-radius: 4px;
+        cursor: pointer;
+        height: 36px;
+        width: 80px;
+        margin-right: 16px;
+        p {
+          font-size: 16px;
+          font-family: 'Open Sans', sans-serif;
+          font-weight: 100;
+          color: #FFF;
+          padding: 0 10px;
+        }
+      }
+      .cancel-btn {
+        background: #ED6464;
+      }
+    }
+  }
+}
+

@@ -8,8 +8,11 @@ angular.module('snailbox')
       reviewCtrl.loading = true;
       userService.getConnections($stateParams.id)
         .then(function (user) {
-          reviewCtrl.sent     = user.pendingInvitationsSent;
-          reviewCtrl.received = user.pendingInvitationsReceived;
+
+          reviewCtrl.sent = _.sortBy(user.pendingInvitationsSent, ['lastName', 'firstName']);
+
+          reviewCtrl.received = _.sortBy(user.pendingInvitationsReceived, ['lastName', 'firstName']);
+
           _.each(reviewCtrl.received, function (user) {
             user.selected = false;
           });
