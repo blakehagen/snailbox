@@ -65,7 +65,7 @@ angular.module('snailbox').service('userService', function ($http, API) {
       return error;
     });
   };
-  
+
   this.saveConnections = function (id, newConnections) {
     return $http({
       method: 'PUT',
@@ -73,6 +73,19 @@ angular.module('snailbox').service('userService', function ($http, API) {
       // url: API.SERVER_LOCAL_MDB + 'user/' + id + '/connections',
       dataType: 'json',
       data: newConnections
+    }).then(function (response) {
+      return response.data;
+    }).catch(function (error) {
+      return error;
+    });
+  };
+
+  this.removeRequest = function (id, inviteToDelete) {
+    return $http({
+      method: 'PUT',
+      url: API.SERVER_HEROKU + 'user/' + id + '/remove/' + inviteToDelete,
+      // url: API.SERVER_LOCAL_MDB + 'user/' + id + '/remove/' + inviteToDelete,
+      dataType: 'json',
     }).then(function (response) {
       return response.data;
     }).catch(function (error) {
