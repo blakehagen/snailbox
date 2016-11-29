@@ -26,8 +26,27 @@
     .address-book-content-container {
       min-height: 90px;
       .content-row {
-        padding: 4px 16px;
+        padding: 4px 16px 0 30px;
         width: 100%;
+        .filter {
+          margin: 14px 6px 20px 0;
+          width: 264px;
+          height: 34px;
+          input {
+            width: 100%;
+            height: 34px;
+            line-height: 34px;
+            border: 1px solid #CCC;
+            border-radius: 4px;
+            outline: 0;
+            box-shadow: none;
+            font-family: 'Open Sans',sans-serif;
+            font-weight: 100;
+            font-size: 16px;
+            padding-left: 42px;
+            background: url(../assets/search-icon-gray.svg) 1% 0 no-repeat;
+          }
+        }
         p {
           font-family: 'Open Sans', sans-serif;
           font-weight: 100;
@@ -39,9 +58,9 @@
         cursor: pointer;
         width: 100%;
         padding: 8px 10px 8px 20px;
-        border-bottom: 1px solid #CCCCCC;
+        border-top: 1px solid #CCCCCC;
         &:last-child {
-          margin-bottom: 6px;
+          border-bottom: 1px solid #CCCCCC;
         }
         img {
           width: 40px;
@@ -49,44 +68,25 @@
           margin-right: 10px;
         }
         .connection-info {
+          margin-left: 10px;
           padding: 4px;
           .info-col {
             p {
               font-family: 'Open Sans', sans-serif;
-              font-weight: 100;
               color: #455A64;
             }
             .name {
-              font-size: 17px;
+              font-weight: 400;
+              letter-spacing: 0.5px;
+              font-size: 18px;
             }
-            .email {
-              font-size: 12px;
+            .address {
+              font-size: 14px;
+              letter-spacing: 0.5px;
+              font-weight: 100;
             }
           }
         }
-      }
-    }
-    .review-buttons-container {
-      margin-top: 11px;
-      margin-bottom: 24px;
-      padding-left: 20px;
-      .btn {
-        background: @base;
-        border-radius: 4px;
-        cursor: pointer;
-        height: 36px;
-        width: 80px;
-        margin-right: 16px;
-        p {
-          font-size: 16px;
-          font-family: 'Open Sans', sans-serif;
-          font-weight: 100;
-          color: #FFF;
-          padding: 0 10px;
-        }
-      }
-      .cancel-btn {
-        background: #ED6464;
       }
     }
   }

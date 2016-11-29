@@ -26,24 +26,35 @@
 
       <div class="address-book-content-container flex-base-col-start default-cursor" ng-hide="addressBookCtrl.loading" >
         <div class="content-row flex-base-row-start">
-          <p style="font-size: 16px;"> [Filter will go here...]</p>
+
+          <div class="filter">
+            <input type="text" placeholder="Search Address Book" ng-model="searchAddressBook">
+          </div>
+
         </div>
 
         <div class="row flex-base-row-start"
-             ng-repeat="connection in addressBookCtrl.connections track by $index">
-          <img src="../assets/dots-icon.svg" alt="checkbox-checked">
+             ng-repeat="connection in addressBookCtrl.connections | filter: searchAddressBook:strict track by $index">
+          <!--<img src="../assets/dots-icon.svg" alt="checkbox-checked">-->
           <div class="connection-info">
             <div class="info-col">
               <p class="name">{{connection.firstName}} {{ connection.lastName }}</p>
             </div>
-            <!--<div class="info-col">-->
-              <!--<p class="email">{{ connection.email }}</p>-->
-            <!--</div>-->
+            <div class="info-col">
+              <p class="address">{{ connection.address.address1 }}</p>
+            </div>
+            <div class="info-col" ng-if="connection.address.address2">
+              <p class="address">{{ connection.address.address2 }}</p>
+            </div>
+            <div class="info-col">
+              <p class="address">{{ connection.address.city }} {{ connection.address.state }}, {{ connection.address.postal_code }}</p>
+            </div>
+            <div class="info-col">
+              <p class="address">{{ connection.address.country }}</p>
+            </div>
           </div>
         </div>
       </div>
-
-
 
     </section>
   </div>
