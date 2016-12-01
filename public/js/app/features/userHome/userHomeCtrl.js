@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('snailbox').controller('userHomeCtrl', function ($stateParams, $state, $location, userService) {
+angular.module('snailbox').controller('userHomeCtrl', function ($stateParams, $state, $location, userService, _) {
   var userHomeCtrl     = this;
   userHomeCtrl.loading = true;
 
@@ -13,6 +13,8 @@ angular.module('snailbox').controller('userHomeCtrl', function ($stateParams, $s
         }
         console.log('user', user);
         userHomeCtrl.address = user.address;
+        userHomeCtrl.pending = _.get(user, 'pendingInvitationsReceived.length', null);
+        console.log('userHomeCtrl.pending -->', userHomeCtrl.pending);
         userHomeCtrl.loading = false;
       }).catch(function (error) {
       $state.go('login');

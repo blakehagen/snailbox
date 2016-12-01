@@ -50,12 +50,16 @@
 
         <div class="content-row actions flex-base-row-start" ng-click="userHomeCtrl.goToSendAddress()">
           <img src="../assets/plus-icon-blue.svg" alt="send-address" style="width: 34px;">
-          <p>Send My Address</p>
+          <p>Share My Address</p>
         </div>
 
         <div class="content-row actions flex-base-row-start" ng-click="userHomeCtrl.goToReview()">
           <img src="../assets/check-icon-blue.svg" alt="review-address-requests" style="width: 34px;">
-          <p>Review Requests</p>
+          <p>Requests</p>
+          <div class="notify-requests flex-base-col-center" ng-show="userHomeCtrl.pending > 0">
+            <p id="notify-text" ng-show="userHomeCtrl.pending <= 99">{{ userHomeCtrl.pending }}</p>
+            <p id="notify-text" style="font-size: 12px; font-weight: 100;" ng-show="userHomeCtrl.pending > 99">99+</p>
+          </div>
         </div>
 
         <div class="content-row actions flex-base-row-start" ng-click="userHomeCtrl.goToEditAddress()">
