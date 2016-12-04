@@ -81,7 +81,7 @@ gulp.task('optimize-appJs', ['js-check'], function (done) {
   gulp.src(config.appJS)
     .pipe(ngAnnotate())
     .pipe(gconcat('app.js'))
-    // .pipe(strip())
+    .pipe(strip())
     .pipe(uglify())
     .pipe(gulp.dest(config.build + 'js'));
   done();
