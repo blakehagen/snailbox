@@ -49,7 +49,7 @@ angular.module('snailbox')
       userService.saveConnections($stateParams.id, acceptedRequests).then(function (response) {
         console.log('response saveConnections', response);
         if (response === 'Success') {
-          reviewCtrl.getUser();
+          reviewCtrl.goToAddressBook();
         }
       });
     };
@@ -61,6 +61,10 @@ angular.module('snailbox')
           reviewCtrl.getUser();
         }
       });
+    };
+
+    reviewCtrl.goToAddressBook = function () {
+      $location.path('/user/' + $stateParams.id + '/addresses');
     };
 
   });
