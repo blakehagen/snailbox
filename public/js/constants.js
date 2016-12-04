@@ -14,5 +14,5 @@ angular.module('snailbox')
 
   .constant('API', {
     SERVER_LOCAL_MDB: 'http://localhost:4800/api/v1/',
-    SERVER_HEROKU: 'http://snailbox-api.herokuapp.com/api/v1/'
+    SERVER_HEROKU: 'https://snailbox-api.herokuapp.com/api/v1/'
   });
