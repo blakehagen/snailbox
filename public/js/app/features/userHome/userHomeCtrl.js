@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('snailbox').controller('userHomeCtrl', function ($stateParams, $state, $location, userService, _) {
+angular.module('snailbox').controller('userHomeCtrl', function ($stateParams, $state, $location, userService, mapService, _) {
   var userHomeCtrl     = this;
   userHomeCtrl.loading = true;
 
@@ -16,6 +16,14 @@ angular.module('snailbox').controller('userHomeCtrl', function ($stateParams, $s
         userHomeCtrl.pending = _.get(user, 'pendingInvitationsReceived.length', null);
         console.log('userHomeCtrl.pending -->', userHomeCtrl.pending);
         userHomeCtrl.loading = false;
+
+        if (!_.get(user, 'coordinates') || !_.get(user, 'coordinates.latitude') || !_.get(user, 'coordinates.longitude')) {
+          console.log('Fetching coordinates...');
+          mapService.getCoordinates($stateParams.id, user.address)
+            .then(function (response) {
+              console.log(response);
+            });
+        }
       }).catch(function (error) {
       $state.go('login');
       console.log('error', error);
