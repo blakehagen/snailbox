@@ -8,13 +8,19 @@ angular.module('snailbox').controller('userHomeCtrl', function ($stateParams, $s
   userHomeCtrl.getUser = function () {
     userService.getUserById($stateParams.id)
       .then(function (user) {
+        console.log('user', user);
+
+        if (_.get(user, 'status', null) === 401) {
+          $state.go('login');
+          return false;
+        }
+
         if (!user.address.address1) {
           $location.path('/user/' + $stateParams.id + '/new');
         }
-        console.log('user', user);
+
         userHomeCtrl.address = user.address;
         userHomeCtrl.pending = _.get(user, 'pendingInvitationsReceived.length', null);
-        console.log('userHomeCtrl.pending -->', userHomeCtrl.pending);
         userHomeCtrl.loading = false;
 
         if (!_.get(user, 'coordinates') || !_.get(user, 'coordinates.latitude') || !_.get(user, 'coordinates.longitude')) {
@@ -24,10 +30,10 @@ angular.module('snailbox').controller('userHomeCtrl', function ($stateParams, $s
               console.log(response);
             });
         }
-      }).catch(function (error) {
-      $state.go('login');
-      console.log('error', error);
-    });
+      })
+      .catch(function (err) {
+        console.log('err', err);
+      });
   };
 
   userHomeCtrl.getUser();

@@ -93,5 +93,4 @@ angular.module('snailbox').service('userService', function ($http, API) {
     });
   };
 
-
 });

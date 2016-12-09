@@ -1,5 +1,5 @@
 angular.module('snailbox')
-  .controller('reviewCtrl', function ($stateParams, $location, userService, _) {
+  .controller('reviewCtrl', function ($state, $stateParams, $location, userService, _) {
     var reviewCtrl     = this;
     reviewCtrl.loading = true;
 
@@ -8,6 +8,10 @@ angular.module('snailbox')
       reviewCtrl.loading = true;
       userService.getConnections($stateParams.id)
         .then(function (user) {
+          if (_.get(user, 'status', null) === 401) {
+            $state.go('login');
+            return false;
+          }
 
           reviewCtrl.sent = _.sortBy(user.pendingInvitationsSent, ['lastName', 'firstName']);
 
@@ -19,9 +23,10 @@ angular.module('snailbox')
           reviewCtrl.loading = false;
           console.log('reviewCtrl.received', reviewCtrl.received);
           console.log('reviewCtrl.sent', reviewCtrl.sent);
-        }).catch(function (error) {
-        console.log('error', error);
-      });
+        })
+        .catch(function (err) {
+          console.log('err', err);
+        });
     };
 
     reviewCtrl.getUser();
@@ -46,21 +51,37 @@ angular.module('snailbox')
       if (_.isEmpty(acceptedRequests)) {
         return false;
       }
-      userService.saveConnections($stateParams.id, acceptedRequests).then(function (response) {
-        console.log('response saveConnections', response);
-        if (response === 'Success') {
-          reviewCtrl.goToAddressBook();
-        }
-      });
+      userService.saveConnections($stateParams.id, acceptedRequests)
+        .then(function (response) {
+          console.log('response saveConnections', response);
+          if (_.get(response, 'status', null) === 401) {
+            $state.go('login');
+            return false;
+          }
+          if (response === 'Success') {
+            reviewCtrl.goToAddressBook();
+          }
+        })
+        .catch(function (err) {
+          console.log(err);
+        });
     };
 
     reviewCtrl.deleteSentRequest = function (inviteToDelete) {
-      userService.removeRequest($stateParams.id, inviteToDelete).then(function (response) {
-        console.log('response', response);
-        if (response === 'Deleted Request') {
-          reviewCtrl.getUser();
-        }
-      });
+      userService.removeRequest($stateParams.id, inviteToDelete)
+        .then(function (response) {
+          console.log('response', response);
+          if (_.get(response, 'status', null) === 401) {
+            $state.go('login');
+            return false;
+          }
+          if (response === 'Deleted Request') {
+            reviewCtrl.getUser();
+          }
+        })
+        .catch(function (err) {
+          console.log(err);
+        });
     };
 
     reviewCtrl.goToAddressBook = function () {
