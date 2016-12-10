@@ -26,11 +26,13 @@
 
       <div class="address-book-content-container flex-base-col-start default-cursor" ng-hide="addressBookCtrl.loading" >
         <div class="content-row flex-base-row-start">
-
-          <div class="filter">
+          <div class="filter" ng-show="!addressBookCtrl.loading && addressBookCtrl.connections.length > 0">
             <input type="text" placeholder="Search Address Book" ng-model="searchAddressBook">
           </div>
+        </div>
 
+        <div class="content-row flex-base-row-start" ng-hide="!addressBookCtrl.loading && addressBookCtrl.connections.length > 0">
+          <p style="font-size: 15px;"> It's quiet in here. <span class="link" ng-click="addressBookCtrl.goToSendAddress()">Find and connect with others.</span></p>
         </div>
 
         <div class="row flex-base-row-start"
