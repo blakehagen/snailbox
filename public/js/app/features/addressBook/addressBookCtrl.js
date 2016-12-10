@@ -1,4 +1,4 @@
-angular.module('snailbox').controller('addressBookCtrl', function ($state, $stateParams, userService, _) {
+angular.module('snailbox').controller('addressBookCtrl', function ($state, $stateParams, $location, userService, _) {
   var addressBookCtrl     = this;
   addressBookCtrl.loading = true;
 
@@ -21,5 +21,9 @@ angular.module('snailbox').controller('addressBookCtrl', function ($state, $stat
 
   addressBookCtrl.getUser();
   //END INITIAL LOAD DATA //
+
+  addressBookCtrl.goToSendAddress = function () {
+    $location.path('/user/' + $stateParams.id + '/send');
+  };
 
 });
